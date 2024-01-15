@@ -14,7 +14,7 @@ describe("LOGIN PAGE", () => {
       screen.getByRole("heading", {
         name: /smart pocket/i,
       })
-    ).toBe(/smart pocket/i);
+    ).toBeInTheDocument();
   });
 
   it("Deberia tener un h2 descriptivo de la app", () => {
