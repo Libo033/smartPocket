@@ -1,10 +1,13 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+import Login from "@/components/login/Login";
+import styles from "./page.module.css";
 
 export default function Home() {
   return (
-    <main>
-      Home - Login
+    <main className={styles.main}>
+      <div className={styles.main_left}>
+        <Login />
+      </div>
+      <div className={styles.main_right}></div>
     </main>
-  )
+  );
 }
