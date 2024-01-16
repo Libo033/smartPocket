@@ -1,11 +1,10 @@
 import Image from "next/image";
-import React, { useId } from "react";
+import React from "react";
 import styles from "@/components/login/page.module.css";
+import LoginSocials from "./LoginSocials";
+import LoginForm from "./LoginForm";
 
 const Login = () => {
-  const $emailId = useId();
-  const $passwordId = useId();
-
   return (
     <div className={styles.Login}>
       <div className={styles.Login_Head}>
@@ -31,21 +30,17 @@ const Login = () => {
         </div>
       </div>
       <div className={styles.Login_Body}>
-        <div className={styles.Login_Formulario}>
-          <div className={styles.Login_InputContainer}>
-            <label htmlFor={$emailId}>Email</label>
-            <input className={styles.Login_Input} id={$emailId} type="email" />
-          </div>
-          <div className={styles.Login_InputContainer}>
-            <label htmlFor={$passwordId}>Contraseña</label>
-            <input
-              className={styles.Login_Input}
-              id={$passwordId}
-              type="password"
-            />
-          </div>
-          <button>Iniciar sesion</button>
-        </div>
+        <LoginForm />
+      </div>
+      <hr
+        style={{
+          width: "70%",
+          borderTop: "1px dotted #690571",
+          borderBottom: "none",
+        }}
+      />
+      <div className={styles.Login_Body}>
+        <LoginSocials />
       </div>
     </div>
   );

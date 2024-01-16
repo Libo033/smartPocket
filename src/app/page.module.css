@@ -1,17 +1,48 @@
 .main {
   width: 100%;
+  max-width: 1920px;
+  margin-left: auto;
+  margin-right: auto;
   height: 100vh;
   display: flex;
 }
 
 .main_left {
   height: 100%;
-  width: 30%;
+  width: 36%;
   background-color: #69057136;
 }
 
 .main_right {
   height: 100%;
-  width: 70%;
+  width: 64%;
   background-color: #f3a0d015;
+}
+
+@media (min-width: 641px) and (max-width: 1007px) {
+  .main {
+    height: 102vh;
+  }
+
+  .main_left {
+    width: 100%;
+  }
+
+  .main_right {
+    width: 0%;
+  }
+}
+
+@media (max-width: 640px) {
+  .main {
+    height: 102vh;
+  }
+
+  .main_left {
+    width: 100%;
+  }
+
+  .main_right {
+    width: 0%;
+  }
 }
