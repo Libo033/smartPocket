@@ -11,12 +11,12 @@ describe("RECOVER_PASSWORD PAGE", () => {
 
     expect(
       screen.getByRole("heading", {
-        name: /registrate/i,
+        name: "Olvidaste tu contraseña?",
       })
     ).toBeInTheDocument();
     expect(
       screen.getByRole("heading", {
-        name: /No te preocupes\, te mandaremos las instrucciones para que cambies tu costraseña\./i,
+        name: "No te preocupes, te mandaremos las instrucciones para que cambies tu costraseña.",
       })
     ).toBeInTheDocument();
   });
