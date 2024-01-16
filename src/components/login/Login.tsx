@@ -13,20 +13,12 @@ const Login = () => {
             className={styles.Login_Logo}
             src={"/img/smartpocket.svg"}
             alt="money"
-            width={120}
-            height={120}
+            width={114}
+            height={114}
           />
         </div>
         <div className={styles.Login_TitleContainer}>
           <h1 className={styles.Login_Title}>Smart Pocket</h1>
-        </div>
-        <div className={styles.Login_SubTitleContainer}>
-          <h2 className={styles.Login_SubTitle}>
-            <span>
-              Controla tus gastos de manera sencilla y ahorra para tus proximos
-              objetivos.
-            </span>
-          </h2>
         </div>
       </div>
       <div className={styles.Login_Body}>

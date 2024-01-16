@@ -41,18 +41,6 @@
   -webkit-text-fill-color: transparent;
 }
 
-.Login_SubTitleContainer {
-  padding-top: 10px;
-  padding-inline: 6%;
-  text-align: center;
-}
-
-.Login_SubTitle {
-  font-size: 15px;
-  font-weight: 400;
-  color: #690571;
-}
-
 .Login_Body {
   width: 100%;
 }
@@ -63,6 +51,14 @@
   display: flex;
   flex-direction: column;
   gap: 18px;
+}
+
+.Login_FormularioTitle {
+  font-size: 1.3em;
+  font-weight: 600;
+  padding-block: 9px;
+  text-align: center;
+  color: #38013b;
 }
 
 .Login_InputContainer {

@@ -9,6 +9,9 @@ const LoginForm = () => {
 
   return (
     <div className={styles.Login_Formulario}>
+      <p className={styles.Login_FormularioTitle}>
+        Administra, ahorra, prospera.
+      </p>
       <div className={styles.Login_InputContainer}>
         <label htmlFor={$emailId}>Email</label>
         <input className={styles.Login_Input} id={$emailId} type="email" />
