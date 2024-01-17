@@ -12,9 +12,88 @@
 }
 
 .Recover_password_Img {
-  width: 111px;
+  width: 72px;
   height: auto;
   background: linear-gradient(45deg, #000092, #ff00f3);
   padding: 12px;
   border-radius: 12px;
+}
+
+.Recover_passwordHeading {
+  text-align: center;
+  text-wrap: pretty;
+}
+
+.Recover_passwordHeading2 {
+  font-weight: 500;
+  font-size: x-large;
+  padding-bottom: 9px;
+}
+
+.Recover_passwordHeading3 {
+  font-weight: 300;
+  font-size: 1em;
+  padding-bottom: 30px;
+  color: #727272;
+  padding-inline: 21px;
+}
+
+.Recover_passwordForm {
+  max-width: 345px;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+}
+
+.Recover_passwordForm label {
+  font-size: 17px;
+  font-weight: 500;
+  margin-bottom: 1px;
+}
+
+.Recover_passwordForm input {
+  border: 1px solid #b13e8f;
+  font-size: 17px;
+  border-radius: 6px;
+  padding-inline: 6px;
+  padding-block: 9px;
+  outline: none;
+}
+
+.Recover_passwordForm input:focus {
+  border: 1px solid #f3a0d0;
+}
+
+.Recover_passwordForm button {
+  margin-block: 24px;
+  transition: 120ms ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background: -webkit-linear-gradient(45deg, #000092, #ff00f3);
+  color: white;
+  font-weight: 600;
+  font-size: 15px;
+  border: 1px solid #690571;
+  border-radius: 12px;
+  text-transform: uppercase;
+  height: 45px;
+}
+
+.Recover_passwordForm button:hover {
+  transition: 120ms ease-in-out;
+  transform: translateY(-1px);
+  box-shadow: 1px 3px 9px #69057190;
+}
+
+.Recover_password a {
+  text-align: left;
+  font-size: 15px;
+  color: #1976d2;
+  text-decoration-color: #1976d260;
+}
+
+.Recover_password a:hover {
+  text-decoration-color: #1976d2;
 }
