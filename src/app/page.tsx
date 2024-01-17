@@ -11,8 +11,8 @@ export default function Home() {
       <div className={styles.main_right}>
         <div className={styles.main_rightTitleContainer}>
           <h2 className={styles.main_rightTitle}>
-            Somos tu aliado financiero. Controla tus gastos de
-            manera sencilla y ahorra para tus proximos objetivos.
+            Somos tu aliado financiero. Controla tus gastos de manera sencilla y
+            ahorra para tus proximos objetivos.
           </h2>
           <Image
             className={styles.main_rightImg}
