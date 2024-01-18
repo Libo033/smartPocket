@@ -14,3 +14,8 @@
 .linkA:hover {
   text-decoration-color: #1976d2;
 }
+
+.dashboardBody {
+  width: 100%;
+  display: flex;
+}
