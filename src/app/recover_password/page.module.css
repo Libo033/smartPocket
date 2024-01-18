@@ -87,17 +87,6 @@
   box-shadow: 1px 3px 9px #69057190;
 }
 
-.Recover_password a {
-  text-align: left;
-  font-size: 15px;
-  color: #1976d2;
-  text-decoration-color: #1976d260;
-}
-
-.Recover_password a:hover {
-  text-decoration-color: #1976d2;
-}
-
 .Recover_passwordSended {
   height: 160px;
   display: flex;

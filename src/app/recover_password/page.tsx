@@ -53,7 +53,9 @@ const Recover_password = () => {
           <button onClick={() => sendEmail()}>Recuperar contraseña</button>
         </div>
       )}
-      <Link href={"/"}>Volver a iniciar sesion!</Link>
+      <Link className="linkA" href={"/"}>
+        Volver a iniciar sesion!
+      </Link>
     </div>
   );
 };
