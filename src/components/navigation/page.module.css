@@ -1,0 +1,86 @@
+.SideBar {
+  height: 100vh;
+  width: 9%;
+  background-color: #f6f6f6;
+}
+
+.SideBar_List {
+  height: 100%;
+}
+
+.SideBar_LogoContainer {
+  height: 18%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.SideBar_Logo {
+  width: 81px;
+  height: auto;
+}
+
+.SideBar_ListItem {
+  transition: 90ms ease-in-out 0s;
+  width: 100%;
+  padding-block: 9px;
+
+}
+
+.SideBar_ListItem:hover {
+  transition: 90ms ease-in-out 0s;
+  background-color: #f3a0d033;
+}
+
+.SideBar_ListItemSelected {
+  transition: 90ms ease-in-out 0s;
+  width: 100%;
+  padding-block: 9px;
+  display: flex;
+  justify-content: center;
+  background-color: #f3a0d033;
+  border-right: 3px solid #8c1d79;
+  cursor: pointer;
+}
+
+.SideBar_Link {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+}
+
+@media (min-width: 641px) and (max-width: 1007px) {
+  .SideBar {
+    width: 12%;
+  }
+  
+  .SideBar_LogoContainer {
+    height: 15%;
+  }
+  
+  .SideBar_Logo {
+    width: 45px;
+    height: auto;
+  }
+  
+  .SideBar_Link {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+  }
+  
+  .SideBar_Link img {
+    width: 36px;
+    height: auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .SideBar {
+    display: none;
+  }
+}
