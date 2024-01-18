@@ -18,4 +18,5 @@
 .dashboardBody {
   width: 100%;
   display: flex;
+  position: relative;
 }

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Titillium_Web } from "next/font/google";
 import "../globals.css";
 import SideBar from "@/components/navigation/SideBar";
+import FloatingNav from "@/components/navigation/FloatingNav";
 
 const titi = Titillium_Web({
   subsets: ["latin"],
@@ -22,6 +23,7 @@ export default function RootLayout({
     <html lang="es">
       <body className={titi.className + " dashboardBody"}>
         <SideBar />
+        <FloatingNav />
         {children}
       </body>
     </html>

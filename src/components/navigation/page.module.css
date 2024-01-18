@@ -1,3 +1,4 @@
+/*#region SIDEBAR */
 .SideBar {
   height: 100vh;
   width: 9%;
@@ -24,7 +25,6 @@
   transition: 90ms ease-in-out 0s;
   width: 100%;
   padding-block: 9px;
-
 }
 
 .SideBar_ListItem:hover {
@@ -50,21 +50,29 @@
   justify-content: center;
   cursor: pointer;
 }
+/*#endregion */
+
+/*#region FLOATINGNAV */
+.FloatingNav {
+  display: none;
+}
+/*#endregion */
 
 @media (min-width: 641px) and (max-width: 1007px) {
+  /*#region SIDEBAR */
   .SideBar {
     width: 12%;
   }
-  
+
   .SideBar_LogoContainer {
     height: 15%;
   }
-  
+
   .SideBar_Logo {
     width: 45px;
     height: auto;
   }
-  
+
   .SideBar_Link {
     width: 100%;
     height: 100%;
@@ -72,15 +80,70 @@
     justify-content: center;
     cursor: pointer;
   }
-  
+
   .SideBar_Link img {
     width: 36px;
     height: auto;
   }
+  /*#endregion */
 }
 
 @media (max-width: 640px) {
+  /*#region SIDEBAR */
   .SideBar {
     display: none;
   }
+  /*#endregion */
+
+  /*#region FLOATINGNAV */
+  .FloatingNav {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+  }
+
+  .FloatingNav_MenuContainer {
+    z-index: -1;
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    background-color: #f3a0d0;
+    width: fit-content;
+    height: fit-content;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 120px;
+  }
+
+  .FloatingNav_Menu {
+    width: 45px;
+    height: auto;
+  }
+
+  .FloatingNav_MenuOpt {
+    transition: 300ms ease-in-out;
+    transform: translateY(0px);
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background-color: #8c1d79;
+  }
+
+  .FloatingNav_MenuOpt {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    list-style: none;
+  }
+
+  .FloatingNav_MenuLink {
+    font-size: x-large;
+    font-weight: 600;
+    color: whitesmoke;
+    text-decoration: none;
+  }
+  /*#endregion */
 }
