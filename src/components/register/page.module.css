@@ -1,0 +1,57 @@
+.RegisterForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.RegisterForm_DoubleContainer {
+  display: flex;
+  gap: 12px;
+}
+
+.RegisterForm_Container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 15px;
+}
+
+.RegisterForm_Container label {
+  font-size: 17px;
+  font-weight: 500;
+  margin-bottom: 1px;
+}
+
+.RegisterForm_Container input {
+  border: 1px solid #b13e8f;
+  font-size: 17px;
+  border-radius: 6px;
+  padding-inline: 6px;
+  padding-block: 9px;
+  outline: none;
+}
+
+.RegisterForm_Container input:focus {
+  border: 1px solid #f3a0d0;
+}
+
+.RegisterForm_Button {
+  margin-block: 24px;
+  transition: 120ms ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background: -webkit-linear-gradient(45deg, #000092, #ff00f3);
+  color: white;
+  font-weight: 600;
+  font-size: 15px;
+  border: 1px solid #690571;
+  border-radius: 12px;
+  text-transform: uppercase;
+  height: 45px;
+}
+
+.RegisterForm_Button:hover {
+  transition: 120ms ease-in-out;
+  transform: translateY(-1px);
+  box-shadow: 1px 3px 9px #69057190;
+}

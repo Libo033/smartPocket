@@ -3,3 +3,14 @@
   padding: 0;
   margin: 0;
 }
+
+.linkA {
+  text-align: left;
+  font-size: 15px;
+  color: #1976d2;
+  text-decoration-color: #1976d260;
+}
+
+.linkA:hover {
+  text-decoration-color: #1976d2;
+}

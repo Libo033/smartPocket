@@ -24,7 +24,7 @@ const Register = () => {
       <div>
         <RegisterForm />
       </div>
-      <Link href={"/"}>Ya tenes cuenta? Inicia sesion!</Link>
+      <Link className="linkA" href={"/"}>Ya tenes cuenta? Inicia sesion!</Link>
     </div>
   );
 };
