@@ -17,6 +17,9 @@
 
 .dashboardBody {
   width: 100%;
+  max-width: 1920px;
+  margin-left: auto;
+  margin-right: auto;
   display: flex;
   position: relative;
 }

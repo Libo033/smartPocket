@@ -7,6 +7,7 @@
 
 .SideBar_List {
   height: 100%;
+  list-style: none;
 }
 
 .SideBar_LogoContainer {
@@ -104,7 +105,7 @@
   }
 
   .FloatingNav_MenuContainer {
-    z-index: -1;
+    z-index: 1;
     position: absolute;
     top: 18px;
     right: 18px;
@@ -124,26 +125,57 @@
   }
 
   .FloatingNav_MenuOpt {
-    transition: 300ms ease-in-out;
-    transform: translateY(0px);
-    z-index: 1;
+    transition: 300ms ease;
+    position: absolute;
+    z-index: 999;
     width: 100%;
     height: 100%;
     background-color: #8c1d79;
-  }
-
-  .FloatingNav_MenuOpt {
+    overflow: hidden;
+    padding-block: 21%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 30px;
     list-style: none;
   }
 
   .FloatingNav_MenuLink {
     font-size: x-large;
-    font-weight: 600;
+    font-weight: 500;
     color: whitesmoke;
     text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: underline;
+  }
+
+  .FloatingNav_MenuLogoContainer {
+    position: absolute;
+    bottom: 51px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .FloatingNav_MenuLogoContainer span {
+    font-size: 18px;
+    color: white;
+  }
+
+  .FloatingNav_MenuLogo {
+    filter: invert(100);
+  }
+
+  .FloatingNav_Close {
+    position: absolute;
+    top: 36px;
+    right: 36px;
+  }
+
+  .FloatingNav_Close img {
+    filter: invert(100);
   }
   /*#endregion */
 }

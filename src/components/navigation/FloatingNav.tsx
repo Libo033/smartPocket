@@ -1,13 +1,18 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import styles from "@/components/navigation/page.module.css";
 import Image from "next/image";
 import Link from "next/link";
 
 const FloatingNav = () => {
+  const [open, setOpen] = useState<boolean>(false);
+
   return (
     <div className={styles.FloatingNav}>
-      <div className={styles.FloatingNav_MenuContainer}>
+      <div
+        onClick={() => setOpen(true)}
+        className={styles.FloatingNav_MenuContainer}
+      >
         <Image
           className={styles.FloatingNav_Menu}
           src={"/img/menu.svg"}
@@ -16,18 +21,62 @@ const FloatingNav = () => {
           height={51}
         />
       </div>
-      <ul className={styles.FloatingNav_MenuOpt}>
+      <ul
+        style={
+          open
+            ? { transform: "translateY(0vh)" }
+            : { transform: "translateY(-100vh)" }
+        }
+        className={styles.FloatingNav_MenuOpt}
+      >
         <li>
-          <Link className={styles.FloatingNav_MenuLink} href={"/dashboard"}>dashboard</Link>
+          <Link
+            className={styles.FloatingNav_MenuLink}
+            onClick={() => setOpen(false)}
+            href={"/dashboard"}
+          >
+            dashboard
+          </Link>
         </li>
         <li>
-          <Link className={styles.FloatingNav_MenuLink} href={"/dashboard/expense"}>expense</Link>
+          <Link
+            className={styles.FloatingNav_MenuLink}
+            onClick={() => setOpen(false)}
+            href={"/dashboard/expense"}
+          >
+            expense
+          </Link>
         </li>
         <li>
-          <Link className={styles.FloatingNav_MenuLink} href={"/dashboard/category"}>category</Link>
+          <Link
+            className={styles.FloatingNav_MenuLink}
+            onClick={() => setOpen(false)}
+            href={"/dashboard/category"}
+          >
+            category
+          </Link>
         </li>
         <li>
-          <Link className={styles.FloatingNav_MenuLink} href={"/dashboard/chart"}>chart</Link>
+          <Link
+            className={styles.FloatingNav_MenuLink}
+            onClick={() => setOpen(false)}
+            href={"/dashboard/chart"}
+          >
+            chart
+          </Link>
+        </li>
+        <li className={styles.FloatingNav_MenuLogoContainer}>
+          <Image
+            className={styles.FloatingNav_MenuLogo}
+            src={"/img/smartpocket_black.svg"}
+            alt="smartpocket"
+            width={90}
+            height={90}
+          />
+          <span>Smart Pocket</span>
+        </li>
+        <li onClick={() => setOpen(false)} className={styles.FloatingNav_Close}>
+          <Image src={"/img/close.svg"} alt="cross" width={33} height={33} />
         </li>
       </ul>
     </div>

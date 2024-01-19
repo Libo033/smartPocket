@@ -21,10 +21,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es">
-      <body className={titi.className + " dashboardBody"}>
-        <SideBar />
-        <FloatingNav />
-        {children}
+      <body className={titi.className}>
+        <div className="dashboardBody">
+          <SideBar />
+          <FloatingNav />
+          {children}
+        </div>
       </body>
     </html>
   );
