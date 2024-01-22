@@ -25,7 +25,6 @@
 .SideBar_ListItem {
   transition: 90ms ease-in-out 0s;
   width: 100%;
-  padding-block: 9px;
 }
 
 .SideBar_ListItem:hover {
@@ -36,7 +35,6 @@
 .SideBar_ListItemSelected {
   transition: 90ms ease-in-out 0s;
   width: 100%;
-  padding-block: 9px;
   display: flex;
   justify-content: center;
   background-color: #f3a0d033;
@@ -45,6 +43,7 @@
 }
 
 .SideBar_Link {
+  padding-block: 9px;
   width: 100%;
   height: 100%;
   display: flex;
