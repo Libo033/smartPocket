@@ -1,0 +1,49 @@
+/*#region CATEGORYCARD */
+.CategoryCard {
+  width: 100%;
+  border: 1px solid black;
+  border-radius: 15px;
+  padding: 9px;
+}
+
+.CategoryCard_NameContainer {
+  padding-bottom: 12px;
+}
+
+.CategoryCard_Name {
+  font-size: 21px;
+  font-weight: 600;
+}
+
+.CategoryCard_ButtonGroup {
+  display: flex;
+  flex-direction: row;
+  gap: 3px;
+}
+
+.CategoryCard_ButtonGroup button {
+  transition: 120ms ease;
+  width: 50%;
+  background-color: whitesmoke;
+  padding-block: 3px;
+  border: 1px solid gray;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.CategoryCard_ButtonEdit:hover {
+  transition: 120ms ease;
+  background-color: lightskyblue;
+}
+
+.CategoryCard_ButtonDelete:hover {
+  transition: 120ms ease;
+  background-color: red;
+}
+/*#endregion */
+
+@media (641px <= width <= 1007px) {
+}
+
+@media (width <= 640px) {
+}

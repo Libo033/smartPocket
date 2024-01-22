@@ -1,7 +1,38 @@
 .Category {
+  z-index: 0;
   width: 100%;
   max-width: 1920px;
   margin-left: auto;
   margin-right: auto;
   height: 100vh;
+}
+
+.Category_TitleContainer {
+  padding: 7% 3% 0% 3%;
+}
+
+.Category_Title {
+  font-size: 36px;
+  font-weight: 600;
+}
+
+.Category_LinkContainer {
+  padding: 0% 3% 0% 3%;
+}
+
+.Category_CategoryContainer {
+  padding: 3%;
+  width: 100%;
+  height: fit-content;
+  display: grid;
+  place-items: center;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  row-gap: 1rem;
+  column-gap: 0.9rem;
+}
+
+@media (641px <= width <= 1007px) {
+}
+
+@media (width <= 640px) {
 }
