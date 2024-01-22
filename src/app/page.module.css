@@ -56,7 +56,7 @@
   height: auto;
 }
 
-@media (min-width: 641px) and (max-width: 1007px) {
+@media (641px <= width <= 1007px) {
   .main {
     min-height: 100vh;
   }
@@ -72,7 +72,7 @@
   }
 }
 
-@media (max-width: 640px) {
+@media (width <= 640px) {
   .main {
     min-height: 100vh;
     height: fit-content;

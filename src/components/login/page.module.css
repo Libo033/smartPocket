@@ -158,7 +158,7 @@
 }
 /*#endregion */
 
-@media (min-width: 641px) and (max-width: 1007px) {
+@media (641px <= width <= 1007px) {
   /*#region LOGIN */
   .Login_Logo {
     width: 100px;
@@ -177,7 +177,7 @@
   /*#endregion */
 }
 
-@media (max-width: 640px) {
+@media (width <= 640px) {
   /*#region LOGIN */
   .Login_Head {
     padding-top: 12px;
