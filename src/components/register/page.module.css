@@ -55,3 +55,13 @@
   transform: translateY(-1px);
   box-shadow: 1px 3px 9px #69057190;
 }
+
+@media (width <= 640px) {
+  .RegisterForm {
+    width: 81%;
+  }
+
+  .RegisterForm_DoubleContainer {
+    flex-direction: column;
+  }
+}

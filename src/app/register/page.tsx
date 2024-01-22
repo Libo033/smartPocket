@@ -21,10 +21,10 @@ const Register = () => {
           <h2>Registrate</h2>
         </div>
       </div>
-      <div>
-        <RegisterForm />
-      </div>
-      <Link className="linkA" href={"/"}>Ya tenes cuenta? Inicia sesion!</Link>
+      <RegisterForm />
+      <Link className="linkA" href={"/"}>
+        Ya tenes cuenta? Inicia sesion!
+      </Link>
     </div>
   );
 };
