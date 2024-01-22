@@ -3,7 +3,8 @@
   max-width: 1920px;
   margin-left: auto;
   margin-right: auto;
-  height: 100vh;
+  min-height: 100vh;
+  height: fit-content;
   display: flex;
   background: url("/img/waves.svg");
   background-position: center;
@@ -12,18 +13,24 @@
 }
 
 .main_left {
-  height: 100%;
+  min-height: 100vh;
+  height: fit-content;
   width: 36%;
   background: rgba(255, 255, 255, 0.6);
   border-radius: 0px 21px 21px 0px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
   backdrop-filter: blur(1.5px);
   -webkit-backdrop-filter: blur(1.5px);
+  display: flex;
+  align-items: center;
 }
 
 .main_right {
-  height: 100%;
+  min-height: 100vh;
+  height: fit-content;
   width: 64%;
+  display: flex;
+  align-items: center;
 }
 
 .main_rightTitleContainer {
@@ -51,11 +58,12 @@
 
 @media (min-width: 641px) and (max-width: 1007px) {
   .main {
-    height: 102vh;
+    min-height: 100vh;
   }
 
   .main_left {
     width: 100%;
+    border-radius: 0px;
   }
 
   .main_right {
@@ -66,11 +74,13 @@
 
 @media (max-width: 640px) {
   .main {
-    height: 102vh;
+    min-height: 100vh;
+    height: fit-content;
   }
 
   .main_left {
     width: 100%;
+    border-radius: 0px;
   }
 
   .main_right {

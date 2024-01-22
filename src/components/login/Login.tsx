@@ -29,6 +29,7 @@ const Login = () => {
           width: "70%",
           borderTop: "1px dotted #690571",
           borderBottom: "none",
+          marginBlock: "21px",
         }}
       />
       <div className={styles.Login_Body}>

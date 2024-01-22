@@ -11,6 +11,7 @@
 }
 
 .Login_Head {
+  padding-top: 21px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -46,17 +47,17 @@
 }
 
 .Login_Formulario {
-  width: 100%;
+  width: 70%;
   padding-inline: 15%;
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 12px;
 }
 
 .Login_FormularioTitle {
   font-size: 1.3em;
   font-weight: 600;
-  padding-block: 9px;
+  padding-block: 3px;
   text-align: center;
   color: #38013b;
 }
@@ -127,7 +128,8 @@
 
 /*#region LOGINSOCIALS */
 .LoginSocials {
-  width: 100%;
+  padding-bottom: 21px;
+  width: 70%;
   padding-inline: 15%;
   display: flex;
   flex-direction: column;
@@ -167,12 +169,14 @@
   }
 
   .Login_Formulario {
+    width: 50%;
     padding-inline: 25%;
   }
   /*#endregion */
 
   /*#region LOGINSOCIALS */
   .LoginSocials {
+    width: 50%;
     padding-inline: 25%;
   }
   /*#endregion */
@@ -180,6 +184,10 @@
 
 @media (max-width: 640px) {
   /*#region LOGIN */
+  .Login_Head {
+    padding-top: 12px;
+  }
+
   .Login_Logo {
     width: 100px;
     height: auto;
@@ -190,13 +198,16 @@
   }
 
   .Login_Formulario {
+    width: 76%;
     padding-inline: 12%;
   }
   /*#endregion */
 
   /*#region LOGINSOCIALS */
   .LoginSocials {
+    width: 76%;
     padding-inline: 12%;
+    padding-bottom: 12px;
   }
   /*#endregion */
 }

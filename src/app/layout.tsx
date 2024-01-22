@@ -19,7 +19,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es">
-      <body className={titi.className}>{children}</body>
+      <body style={{ margin: "0px" }} className={titi.className}>
+        {children}
+      </body>
     </html>
   );
 }
