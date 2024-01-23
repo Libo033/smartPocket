@@ -1,10 +1,12 @@
 "use client";
-import React, { useId, useState } from "react";
+import React, { FormEvent, useId, useState } from "react";
 import styles from "../page.module.css";
 import Link from "next/link";
-import { CirclePicker, ColorResult, HuePicker, SliderPicker } from "react-color";
+import { CirclePicker, ColorResult, HuePicker } from "react-color";
+import { useRouter } from "next/navigation";
 
 const CategoryNew = () => {
+  const router = useRouter();
   const [background, setBackground] = useState<string>("#ffffff");
   const $name = useId();
   const $color = useId();
@@ -31,7 +33,13 @@ const CategoryNew = () => {
   ];
 
   const handleColors = (color: ColorResult) => {
-    setBackground(color.hex + "30");
+    setBackground(color.hex + "45");
+  };
+
+  const createCategory = (e: FormEvent) => {
+    e.preventDefault();
+
+    router.push("/dashboard/category");
   };
 
   return (
@@ -44,10 +52,14 @@ const CategoryNew = () => {
           Volver
         </Link>
       </div>
-      <form className={styles.Category_Form} action="post">
+      <form
+        className={styles.Category_Form}
+        onSubmit={(Event: FormEvent) => createCategory(Event)}
+        action="post"
+      >
         <div className={styles.Category_FormContainer}>
           <label htmlFor={$name}>Nombre</label>
-          <input type="text" id={$name} required />
+          <input type="text" id={$name} autoComplete="off" required />
         </div>
         <div className={styles.Category_FormContainer}>
           <label htmlFor={$color}>Color</label>
@@ -65,7 +77,9 @@ const CategoryNew = () => {
           />
         </div>
         <div className={styles.Category_FormButtonContainer}>
-          <button className={styles.Category_FormButton}>Crear</button>
+          <button type="submit" className={styles.Category_FormButton}>
+            Crear
+          </button>
         </div>
       </form>
     </div>
