@@ -16,6 +16,7 @@
     "@mui/material": "^5.15.5",
     "next": "14.0.4",
     "react": "^18",
+    "react-color": "^2.19.3",
     "react-dom": "^18"
   },
   "devDependencies": {
@@ -25,6 +26,7 @@
     "@types/jest": "^29.5.11",
     "@types/node": "^20",
     "@types/react": "^18",
+    "@types/react-color": "^3.0.11",
     "@types/react-dom": "^18",
     "eslint": "^8",
     "eslint-config-next": "14.0.4",

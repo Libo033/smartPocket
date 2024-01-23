@@ -13,7 +13,11 @@ const CategoryCard: React.FC<ICategory> = ({ _id, categoria, color }) => {
     backgroundColor: `${color}51`,
   };
 
-  const handleDeleteCategory = () => {};
+  const handleDeleteCategory = () => {
+    if (confirm("¿Estas seguro que deseas borrar esta categoria?")) {
+      console.log("ELIMINADO");
+    }
+  };
 
   return (
     <article style={colorStyles} className={styles.CategoryCard}>
