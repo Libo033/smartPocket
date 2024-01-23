@@ -3,3 +3,12 @@ export interface ICategory {
   categoria: string;
   color: string;
 }
+
+export interface IExpense {
+  _id: string;
+  category_id: string;
+  expense: number;
+  year: number;
+  month: number;
+  day: number;
+}
