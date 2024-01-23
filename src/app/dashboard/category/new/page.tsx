@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import styles from "../page.module.css";
 import Link from "next/link";
 import { ColorResult } from "react-color";
-import { useRouter } from "next/navigation";
 import CategoryForm from "@/components/category/CategoryForm";
 
 const CategoryNew = () => {
@@ -23,7 +22,11 @@ const CategoryNew = () => {
           Volver
         </Link>
       </div>
-      <CategoryForm handleColors={handleColors} background={background} />
+      <CategoryForm
+        handleColors={handleColors}
+        background={background}
+        id={null}
+      />
     </div>
   );
 };

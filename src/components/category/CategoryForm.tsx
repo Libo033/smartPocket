@@ -1,18 +1,13 @@
-import React, { FormEvent, useId } from "react";
+import React, { FormEvent, useEffect, useId } from "react";
 import styles from "./page.module.css";
 import { CirclePicker, ColorResult, HuePicker } from "react-color";
-import {
-  ReadonlyURLSearchParams,
-  useRouter,
-  useSearchParams,
-} from "next/navigation";
+import { useRouter } from "next/navigation";
 
 const CategoryForm: React.FC<{
   handleColors: Function;
   background: string;
-}> = ({ handleColors, background }) => {
-  const searchParams: ReadonlyURLSearchParams = useSearchParams();
-  const id: string | null = searchParams.get("id");
+  id: string | null;
+}> = ({ handleColors, background, id }) => {
   const router = useRouter();
   const $name = useId();
   const $color = useId();
@@ -43,6 +38,10 @@ const CategoryForm: React.FC<{
 
     router.push("/dashboard/category");
   };
+
+  useEffect(() => {
+    console.log(id);
+  }, []);
 
   return (
     <form
