@@ -12,3 +12,10 @@ export interface IExpense {
   month: number;
   day: number;
 }
+
+export interface ICategoryContext {
+  categories: ICategory[];
+  deleteCategory: Function | null;
+  createCategory: Function | null;
+  editCategory: Function | null;
+}
