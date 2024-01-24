@@ -25,7 +25,7 @@ const Category = () => {
             categories.map((c) => <CategoryCard key={c._id} {...c} />)
           ) : (
             <p className={styles.Category_CreateCategory}>
-              Crear nuevas categorias para que aparezcan aqui
+              Crea nuevas categorias para que aparezcan aqui
             </p>
           )
         ) : (

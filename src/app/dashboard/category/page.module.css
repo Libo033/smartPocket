@@ -51,4 +51,14 @@
     height: fit-content;
     overflow-x: hidden;
   }
+
+  .Category_CategoryContainer {
+    margin-top: 18px;
+  }
+
+  .Category_CreateCategory {
+    margin-top: 36px;
+    font-size: 21px;
+    text-align: center;
+  }
 }
