@@ -2,7 +2,10 @@
 .SideBar {
   height: 100vh;
   width: 9%;
+  max-width: 180px;
   background-color: #f6f6f6;
+  position: fixed;
+  z-index: 999;
 }
 
 .SideBar_List {

@@ -8,11 +8,11 @@ const CategoryNew = () => {
   const [background, setBackground] = useState<string>("#ffffff");
 
   const handleColors = (color: string) => {
-    setBackground(color + "45");
+    setBackground(color + "60");
   };
 
   return (
-    <div style={{ backgroundColor: background }} className={styles.Category}>
+    <div className={styles.Category}>
       <div className={styles.Category_TitleContainer}>
         <h1 className={styles.Category_Title}>Nueva Categoria</h1>
       </div>

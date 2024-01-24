@@ -111,11 +111,12 @@
 }
 
 .CategoryForm_ColorPicker2 {
-  min-width: 90%;
+  margin-top: 10px;
+  min-width: 100%;
 }
 
 .CategoryForm_ButtonContainer {
-  padding-top: 45px;
+  padding-block: 45px;
   display: flex;
   justify-content: center;
 }
@@ -127,11 +128,10 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  background: -webkit-linear-gradient(45deg, #000092, #ff00f3);
-  color: white;
+  color: #303030;
   font-weight: 600;
   font-size: 17px;
-  border: 1px solid #690571;
+  border: 1px solid #c0c0c0;
   border-radius: 12px;
   text-transform: uppercase;
   height: 45px;
@@ -140,7 +140,7 @@
 .CategoryForm_Button:hover {
   transition: 120ms ease-in-out;
   transform: translateY(-1px);
-  box-shadow: 1px 3px 9px #69057190;
+  box-shadow: 1px 3px 9px #45454590;
 }
 /*#endregion */
 
@@ -153,6 +153,11 @@
 @media (width <= 640px) {
   .CategoryForm_Container input {
     width: 72%;
+  }
+
+  .CategoryForm_ColorPicker2 {
+    min-width: 90%;
+    margin-left: 5%;
   }
 
   .CategoryForm_Button {

@@ -99,7 +99,11 @@ const CategoryForm: React.FC<{
         />
       </div>
       <div className={styles.CategoryForm_ButtonContainer}>
-        <button type="submit" className={styles.CategoryForm_Button}>
+        <button
+          type="submit"
+          style={{ backgroundColor: background }}
+          className={styles.CategoryForm_Button}
+        >
           {id ? "Editar" : "Crear"}
         </button>
       </div>
