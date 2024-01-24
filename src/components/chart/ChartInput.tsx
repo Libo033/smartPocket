@@ -11,7 +11,8 @@ const ChartInput: React.FC<{
   setMonth: React.Dispatch<SetStateAction<string>>;
   year: string;
   setYear: React.Dispatch<SetStateAction<string>>;
-}> = ({ month, setMonth, year, setYear }) => {
+  handleChart: Function;
+}> = ({ month, setMonth, year, setYear, handleChart }) => {
   return (
     <>
       <FormControl fullWidth>
@@ -25,7 +26,7 @@ const ChartInput: React.FC<{
             setMonth(e.target.value as string)
           }
         >
-          <MenuItem value={0}>Anual</MenuItem>
+          <MenuItem value={"anual"}>Anual</MenuItem>
           <MenuItem value={1}>enero</MenuItem>
           <MenuItem value={2}>febrero</MenuItem>
           <MenuItem value={3}>marzo</MenuItem>
@@ -44,12 +45,17 @@ const ChartInput: React.FC<{
         type="number"
         label="Año"
         autoComplete="off"
-        value={parseInt(year)}
+        value={year}
         onChange={(e: ChangeEvent<HTMLInputElement>) =>
           setYear(e.target.value as string)
         }
       />
-      <button className={styles.ChartInput_Button}>Generar Chart</button>
+      <button
+        className={styles.ChartInput_Button}
+        onClick={() => handleChart()}
+      >
+        Generar Chart
+      </button>
     </>
   );
 };
