@@ -7,13 +7,13 @@ import {
   ArcElement,
   Tooltip,
   Legend,
-  ChartData,
   CategoryScale,
   LinearScale,
   BarElement,
   Title,
 } from "chart.js";
-import { Bar, Pie } from "react-chartjs-2";
+import { Bar } from "react-chartjs-2";
+import PieChart from "@/components/chart/PieChart";
 
 ChartJS.register(
   ArcElement,
@@ -80,18 +80,6 @@ const Chart = () => {
     ],
   };
 
-  let pieChartData: ChartData<"pie", unknown> = {
-    labels: ["Restaurantes", "Medicina", "Auto", "Alimentacion"],
-    datasets: [
-      {
-        label: "Total $",
-        data: [12000, 1900, 39000, 45000],
-        backgroundColor: ["#8c1d7990", "#7cde7990", "#FFFB0090", "#b9c8f190"],
-        borderColor: ["#8c1d79", "#7cde79", "#FFFB00", "#b9c8f1"],
-      },
-    ],
-  };
-
   const handleChart = () => {
     if (year && month) {
       if (month === "anual") {
@@ -122,7 +110,7 @@ const Chart = () => {
         {chart === "none" && <div className={styles.Chart_Chart}></div>}
         {chart === "pie" && (
           <div className={styles.Chart_Pie}>
-            <Pie data={pieChartData} />
+            <PieChart />
           </div>
         )}
         {chart === "bar" && (
