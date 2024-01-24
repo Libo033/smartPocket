@@ -1,0 +1,22 @@
+/*#region CHARTINPUT*/
+.ChartInput_Button {
+  transition: 120ms ease-in-out;
+  width: 54%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  color: #303030;
+  font-weight: 600;
+  font-size: 12px;
+  border: 1px solid #c0c0c0;
+  border-radius: 12px;
+  text-transform: uppercase;
+}
+
+.ChartInput_Button:hover {
+  transition: 120ms ease-in-out;
+  transform: translateY(-1px);
+  box-shadow: 1px 3px 9px #45454590;
+}
+/*#endregion */
