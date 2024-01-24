@@ -1,12 +1,14 @@
 "use client";
-import React from "react";
+import React, { useContext } from "react";
 import styles from "@/components/category/page.module.css";
 import { ICategory } from "@/libs/interfaces";
 import { useRouter } from "next/navigation";
 import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
 import Image from "next/image";
+import { CategoryContext } from "@/context/CategoryContext";
 
 const CategoryCard: React.FC<ICategory> = ({ _id, categoria, color }) => {
+  const { deleteCategory } = useContext(CategoryContext);
   const router: AppRouterInstance = useRouter();
   const colorStyles: React.CSSProperties = {
     border: `1px solid ${color}90`,
@@ -14,8 +16,11 @@ const CategoryCard: React.FC<ICategory> = ({ _id, categoria, color }) => {
   };
 
   const handleDeleteCategory = () => {
-    if (confirm("¿Estas seguro que deseas borrar esta categoria?")) {
-      console.log("ELIMINADO");
+    if (
+      confirm("¿Estas seguro que deseas borrar esta categoria?") &&
+      deleteCategory
+    ) {
+      deleteCategory(_id);
     }
   };
 

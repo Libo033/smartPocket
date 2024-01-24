@@ -1,13 +1,16 @@
-import React, { FormEvent, useEffect, useId } from "react";
+import React, { FormEvent, useContext, useEffect, useId } from "react";
 import styles from "./page.module.css";
 import { CirclePicker, ColorResult, HuePicker } from "react-color";
 import { useRouter } from "next/navigation";
+import { CategoryContext } from "@/context/CategoryContext";
 
 const CategoryForm: React.FC<{
   handleColors: Function;
   background: string;
   id: string | null;
 }> = ({ handleColors, background, id }) => {
+  const { categories, createCategory, editCategory } =
+    useContext(CategoryContext);
   const router = useRouter();
   const $name = useId();
   const $color = useId();
@@ -36,11 +39,38 @@ const CategoryForm: React.FC<{
   const handleCategory = (e: FormEvent) => {
     e.preventDefault();
 
+    if (id) {
+      // Editar
+      if (editCategory) {
+        editCategory(
+          id,
+          (document.getElementById($name) as HTMLInputElement).value,
+          background.slice(0, 7)
+        );
+      }
+    } else {
+      // Crear
+      if (createCategory) {
+        createCategory(
+          (document.getElementById($name) as HTMLInputElement).value,
+          background.slice(0, 7)
+        );
+      }
+    }
+
     router.push("/dashboard/category");
   };
 
   useEffect(() => {
-    console.log(id);
+    if (id) {
+      let category = categories.find((c) => c._id === id);
+
+      if (category) {
+        (document.getElementById($name) as HTMLInputElement).value =
+          category?.categoria;
+        handleColors(category.color);
+      }
+    }
   }, []);
 
   return (
@@ -58,11 +88,11 @@ const CategoryForm: React.FC<{
         <HuePicker
           className={styles.CategoryForm_ColorPicker2}
           color={background}
-          onChange={(color: ColorResult) => handleColors(color)}
+          onChange={(color: ColorResult) => handleColors(color.hex)}
         />
         <CirclePicker
           className={styles.CategoryForm_ColorPicker}
-          onChange={(color: ColorResult) => handleColors(color)}
+          onChange={(color: ColorResult) => handleColors(color.hex)}
           circleSpacing={21}
           circleSize={45}
           colors={colors}
@@ -70,7 +100,7 @@ const CategoryForm: React.FC<{
       </div>
       <div className={styles.CategoryForm_ButtonContainer}>
         <button type="submit" className={styles.CategoryForm_Button}>
-          Crear
+          {id ? "Editar" : "Crear"}
         </button>
       </div>
     </form>

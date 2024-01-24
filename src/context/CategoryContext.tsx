@@ -27,6 +27,7 @@ const categoriesDefault: ICategory[] = [
 
 const defaultValue: ICategoryContext = {
   categories: categoriesDefault,
+  load: false,
   createCategory: null,
   editCategory: null,
   deleteCategory: null,
@@ -39,6 +40,7 @@ export const CategoryContextProvider: React.FC<{
   children: React.ReactNode;
 }> = ({ children }) => {
   const [categories, setCategories] = useState<ICategory[]>(categoriesDefault);
+  const [load, setLoad] = useState<boolean>(false);
 
   const createCategory = (category: string, color: string) => {
     let newCategory: ICategory = {
@@ -57,17 +59,20 @@ export const CategoryContextProvider: React.FC<{
       color: color,
     };
 
-    setCategories(categories.filter((c) => c._id !== id));
-    setCategories([...categories, editCategory]);
+    setCategories([...categories.filter((c) => c._id !== id), editCategory]);
   };
 
   const deleteCategory = (id: string) => {
     setCategories(categories.filter((c) => c._id !== id));
   };
 
+  useEffect(() => {
+    setLoad(true);
+  }, []);
+
   return (
     <CategoryContext.Provider
-      value={{ categories, createCategory, editCategory, deleteCategory }}
+      value={{ categories, load, createCategory, editCategory, deleteCategory }}
     >
       {children}
     </CategoryContext.Provider>

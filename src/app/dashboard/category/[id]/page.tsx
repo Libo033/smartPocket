@@ -8,8 +8,8 @@ import CategoryForm from "@/components/category/CategoryForm";
 const CategoryId = ({ params }: { params: { id: string } }) => {
   const [background, setBackground] = useState<string>("#ffffff");
 
-  const handleColors = (color: ColorResult) => {
-    setBackground(color.hex + "45");
+  const handleColors = (color: string) => {
+    setBackground(color + "45");
   };
 
   return (

@@ -15,6 +15,7 @@ export interface IExpense {
 
 export interface ICategoryContext {
   categories: ICategory[];
+  load: boolean;
   deleteCategory: Function | null;
   createCategory: Function | null;
   editCategory: Function | null;

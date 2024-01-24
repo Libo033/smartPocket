@@ -2,14 +2,13 @@
 import React, { useState } from "react";
 import styles from "../page.module.css";
 import Link from "next/link";
-import { ColorResult } from "react-color";
 import CategoryForm from "@/components/category/CategoryForm";
 
 const CategoryNew = () => {
   const [background, setBackground] = useState<string>("#ffffff");
 
-  const handleColors = (color: ColorResult) => {
-    setBackground(color.hex + "45");
+  const handleColors = (color: string) => {
+    setBackground(color + "45");
   };
 
   return (
