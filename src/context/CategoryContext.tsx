@@ -4,22 +4,22 @@ import React, { useEffect, useState, createContext } from "react";
 
 const categoriesDefault: ICategory[] = [
   {
-    _id: "123",
+    _id: "1",
     categoria: "Restaurantes",
     color: "#8c1d79",
   },
   {
-    _id: "1234",
+    _id: "2",
     categoria: "Alimentacion",
     color: "#b9c8f1",
   },
   {
-    _id: "12",
+    _id: "3",
     categoria: "Medicina",
     color: "#7cde79",
   },
   {
-    _id: "1",
+    _id: "4",
     categoria: "Auto",
     color: "#FFFB00",
   },
@@ -40,9 +40,30 @@ export const CategoryContextProvider: React.FC<{
 }> = ({ children }) => {
   const [categories, setCategories] = useState<ICategory[]>(categoriesDefault);
 
-  const createCategory = () => {};
-  const editCategory = () => {};
-  const deleteCategory = () => {};
+  const createCategory = (category: string, color: string) => {
+    let newCategory: ICategory = {
+      _id: (categories.length + 1).toString(),
+      categoria: category,
+      color: color,
+    };
+
+    setCategories([...categories, newCategory]);
+  };
+
+  const editCategory = (id: string, category: string, color: string) => {
+    let editCategory: ICategory = {
+      _id: id,
+      categoria: category,
+      color: color,
+    };
+
+    setCategories(categories.filter((c) => c._id !== id));
+    setCategories([...categories, editCategory]);
+  };
+
+  const deleteCategory = (id: string) => {
+    setCategories(categories.filter((c) => c._id !== id));
+  };
 
   return (
     <CategoryContext.Provider

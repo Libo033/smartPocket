@@ -3,6 +3,7 @@ import { Titillium_Web } from "next/font/google";
 import "../globals.css";
 import SideBar from "@/components/navigation/SideBar";
 import FloatingNav from "@/components/navigation/FloatingNav";
+import { CategoryContextProvider } from "@/context/CategoryContext";
 
 const titi = Titillium_Web({
   subsets: ["latin"],
@@ -22,11 +23,13 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body className={titi.className}>
-        <div className="dashboardBody">
-          <SideBar />
-          <FloatingNav />
-          {children}
-        </div>
+        <CategoryContextProvider >
+          <div className="dashboardBody">
+            <SideBar />
+            <FloatingNav />
+            {children}
+          </div>
+        </CategoryContextProvider>
       </body>
     </html>
   );
