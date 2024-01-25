@@ -39,6 +39,15 @@
 }
 /*#endregion */
 
+/*#region BARCHART */
+.BarChart {
+  width: 93%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/*#endregion */
+
 @media (641px <= width <= 1007px) {
   /*#region PIECHART */
   .PieChart {
@@ -55,6 +64,12 @@
 
   .PieChart_Info {
     width: 90%;
+  }
+  /*#endregion */
+
+  /*#region BARCHART */
+  .BarChart {
+    width: 96%;
   }
   /*#endregion */
 }
@@ -83,6 +98,12 @@
 
   .PieChart_Info {
     width: 99%;
+  }
+  /*#endregion */
+
+  /*#region BARCHART */
+  .BarChart {
+    width: 100%;
   }
   /*#endregion */
 }
