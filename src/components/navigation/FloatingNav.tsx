@@ -35,16 +35,16 @@ const FloatingNav = () => {
             onClick={() => setOpen(false)}
             href={"/dashboard"}
           >
-            dashboard
+            tablero
           </Link>
         </li>
         <li>
           <Link
             className={styles.FloatingNav_MenuLink}
             onClick={() => setOpen(false)}
-            href={"/dashboard/expense"}
+            href={"/dashboard/movements"}
           >
-            expense
+            movimientos
           </Link>
         </li>
         <li>
@@ -53,7 +53,7 @@ const FloatingNav = () => {
             onClick={() => setOpen(false)}
             href={"/dashboard/category"}
           >
-            category
+            categorias
           </Link>
         </li>
         <li>
@@ -62,7 +62,7 @@ const FloatingNav = () => {
             onClick={() => setOpen(false)}
             href={"/dashboard/chart"}
           >
-            chart
+            graficos
           </Link>
         </li>
         <li className={styles.FloatingNav_MenuLogoContainer}>

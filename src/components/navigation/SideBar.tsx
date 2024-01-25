@@ -38,12 +38,12 @@ const SideBar = () => {
         </li>
         <li
           className={
-            pathname === "/dashboard/expense"
+            pathname.includes("movements")
               ? styles.SideBar_ListItemSelected
               : styles.SideBar_ListItem
           }
         >
-          <Link className={styles.SideBar_Link} href={"/dashboard/expense"}>
+          <Link className={styles.SideBar_Link} href={"/dashboard/movements"}>
             <Image
               src={"/img/expense.svg"}
               alt="expense"
@@ -54,7 +54,7 @@ const SideBar = () => {
         </li>
         <li
           className={
-            pathname === "/dashboard/category"
+            pathname.includes("category")
               ? styles.SideBar_ListItemSelected
               : styles.SideBar_ListItem
           }
@@ -70,7 +70,7 @@ const SideBar = () => {
         </li>
         <li
           className={
-            pathname === "/dashboard/chart"
+            pathname.includes("chart")
               ? styles.SideBar_ListItemSelected
               : styles.SideBar_ListItem
           }
