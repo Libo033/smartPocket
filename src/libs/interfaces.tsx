@@ -13,6 +13,14 @@ export interface IExpense {
   day: number;
 }
 
+export interface IIncome {
+  _id: string;
+  income: number;
+  year: number;
+  month: number;
+  day: number;
+}
+
 export interface ICategoryContext {
   categories: ICategory[];
   load: boolean;

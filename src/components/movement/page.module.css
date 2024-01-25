@@ -22,6 +22,33 @@
 }
 /*#endregion */
 
+/*#region INCOMEMOVEMENT */
+.IncomeMovement {
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  border-radius: 9px;
+  align-items: center;
+  background-color: #00840045;
+  border: 1px solid #00840060;
+  box-shadow: 3px 3px 15px #00840072 inset;
+}
+
+.IncomeMovement_Inc {
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 9px;
+  padding: 1.5px 12px;
+  color: #303030;
+}
+
+.IncomeMovement_Total {
+  font-size: 15px;
+  font-weight: 600;
+  padding-right: 12px;
+}
+/*#endregion */
+
 @media (width <= 640px) {
   /*#region EXPENSEMOVEMENT */
   .ExpenseMovement_Category {
@@ -30,6 +57,17 @@
   }
 
   .ExpenseMovement_Expense {
+    padding-right: 9px;
+  }
+  /*#endregion */
+
+  /*#region INCOMEMOVEMENT */
+  .IncomeMovement_Inc {
+    font-size: 14px;
+    padding: 1.5px 9px;
+  }
+
+  .IncomeMovement_Total {
     padding-right: 9px;
   }
   /*#endregion */
