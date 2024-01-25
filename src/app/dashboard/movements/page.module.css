@@ -1,0 +1,89 @@
+.Movements {
+  z-index: 0;
+  width: 100%;
+  max-width: 1920px;
+  margin-left: auto;
+  margin-right: auto;
+  height: 100vh;
+  margin-left: 9%;
+}
+
+.Movements_TitleContainer {
+  padding: 7% 3% 0% 3%;
+}
+
+.Movements_Title {
+  font-size: 36px;
+  font-weight: 600;
+}
+
+.Movements_Container {
+  padding: 1.5% 3% 0% 3%;
+  display: flex;
+  justify-content: space-evenly;
+  gap: 15px;
+}
+
+.Movements_MovContainer {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+
+.Movements_MovTitleContainer {
+  width: 100%;
+  border-bottom: 3px solid gainsboro;
+}
+
+.Movements_MovTitle {
+  padding-left: 15px;
+  font-size: 24px;
+  font-weight: 400;
+  color: #1976d2;
+  text-decoration-color: #1976d260;
+}
+
+.Movements_MovTitle:hover {
+  text-decoration-color: #1976d2;
+}
+
+.Movements_Movements {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.Movements_DateSeparator {
+  color: #818181;
+  font-size: 14px;
+  font-weight: 300;
+  margin-top: 10px;
+  border-bottom: 1px solid gainsboro;
+}
+
+@media (641px <= width <= 1007px) {
+  .Movements {
+    margin-left: 12%;
+  }
+}
+
+@media (width <= 640px) {
+  .Movements {
+    margin-left: 0;
+    min-height: 100vh;
+    height: fit-content;
+    overflow-x: hidden;
+  }
+
+  .Movements_Container {
+    padding: 4.5% 3% 0% 3%;
+  }
+
+  .Movements_MovTitle {
+    font-size: 23px;
+  }
+
+  .Movements_DateSeparator {
+    font-size: 13px;
+  }
+}

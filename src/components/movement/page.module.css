@@ -1,0 +1,36 @@
+/*#region EXPENSEMOVEMENT */
+.ExpenseMovement {
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  border-radius: 9px;
+  align-items: center;
+}
+
+.ExpenseMovement_Category {
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 9px;
+  padding: 1.5px 12px;
+  color: #303030;
+}
+
+.ExpenseMovement_Expense {
+  font-size: 15px;
+  font-weight: 600;
+  padding-right: 12px;
+}
+/*#endregion */
+
+@media (width <= 640px) {
+  /*#region EXPENSEMOVEMENT */
+  .ExpenseMovement_Category {
+    font-size: 14px;
+    padding: 1.5px 9px;
+  }
+
+  .ExpenseMovement_Expense {
+    padding-right: 9px;
+  }
+  /*#endregion */
+}
