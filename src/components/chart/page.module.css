@@ -20,3 +20,69 @@
   box-shadow: 1px 3px 9px #45454590;
 }
 /*#endregion */
+
+/*#region PIECHART */
+.PieChart {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.PieChart span {
+  font-size: 24px;
+}
+
+.PieChart_Info {
+  width: 81%;
+}
+/*#endregion */
+
+@media (641px <= width <= 1007px) {
+  /*#region PIECHART */
+  .PieChart {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .PieChart span {
+    font-size: 24px;
+  }
+
+  .PieChart_Info {
+    width: 90%;
+  }
+  /*#endregion */
+}
+
+@media (width <= 640px) {
+  /*#region CHARTINPUT*/
+  .ChartInput_Button {
+    transition: 120ms ease-in-out;
+    width: 72%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    color: #303030;
+    font-weight: 600;
+    font-size: 10px;
+  }
+  /*#endregion */
+
+  /*#region PIECHART */
+  .PieChart span {
+    font-size: 24px;
+    text-wrap: pretty;
+    text-align: center;
+  }
+
+  .PieChart_Info {
+    width: 99%;
+  }
+  /*#endregion */
+}

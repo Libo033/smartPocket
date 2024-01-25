@@ -6,16 +6,37 @@ import styles from "./page.module.css";
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 const PieChart = () => {
-  const [total, setTotal] = useState<number>(0);
+  const [total, setTotal] = useState<string>("");
 
   const pieChartData = {
-    labels: ["Restaurantes", "Medicina", "Auto", "Alimentacion"],
+    labels: [
+      "Restaurantes",
+      "Medicina",
+      "Auto",
+      "Alimentacion",
+      "Vacaciones",
+      "Otros",
+    ],
     datasets: [
       {
         label: "Total $",
-        data: [12000, 1900, 39000, 45000],
-        backgroundColor: ["#8c1d7990", "#7cde7990", "#FFFB0090", "#b9c8f190"],
-        borderColor: ["#8c1d79", "#7cde79", "#FFFB00", "#b9c8f1"],
+        data: [12000, 1900, 39000, 45000, 3000, 10100],
+        backgroundColor: [
+          "#8c1d7990",
+          "#7cde7990",
+          "#FFFB0090",
+          "#b9c8f190",
+          "#62c0bf90",
+          "#43E62F90",
+        ],
+        borderColor: [
+          "#8c1d79",
+          "#7cde79",
+          "#FFFB00",
+          "#b9c8f1",
+          "#62c0bf",
+          "#43E62F",
+        ],
       },
     ],
   };
@@ -23,22 +44,14 @@ const PieChart = () => {
   useEffect(() => {
     let t = 0;
     pieChartData.datasets[0].data.forEach((a) => (t = a + t));
-    setTotal(t);
+    setTotal(Intl.NumberFormat().format(t));
   }, []);
 
   return (
-    <div
-      style={{
-        width: "100%",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        gap: "30px",
-      }}
-    >
+    <div className={styles.PieChart}>
       <Pie data={pieChartData} />
-      <span style={{ fontSize: "24px" }}>Total gastado: ${total}</span>
-      <div style={{ width: "90%" }}>
+      <span>Total gastado: ${total}</span>
+      <div className={styles.PieChart_Info}>
         {pieChartData.labels.map((category, i) => (
           <p
             style={{
@@ -52,7 +65,7 @@ const PieChart = () => {
             <span
               style={{ borderBottom: "1px dotted gray", width: "100%" }}
             ></span>
-            ${pieChartData.datasets[0].data[i]}
+            ${Intl.NumberFormat().format(pieChartData.datasets[0].data[i])}
           </p>
         ))}
       </div>
