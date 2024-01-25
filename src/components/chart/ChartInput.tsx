@@ -54,7 +54,7 @@ const ChartInput: React.FC<{
         className={styles.ChartInput_Button}
         onClick={() => handleChart()}
       >
-        Generar Chart
+        Generar Grafico
       </button>
     </>
   );

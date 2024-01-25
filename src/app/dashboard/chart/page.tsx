@@ -25,7 +25,7 @@ const Chart = () => {
   return (
     <div className={styles.Chart}>
       <div className={styles.Chart_TitleContainer}>
-        <h1 className={styles.Chart_Title}>Chart</h1>
+        <h1 className={styles.Chart_Title}>Graficos</h1>
       </div>
       <div className={styles.Chart_InputContainer}>
         <ChartInput
