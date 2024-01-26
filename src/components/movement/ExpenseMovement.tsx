@@ -1,5 +1,5 @@
 "use client";
-import React, { useContext, useEffect, useState } from "react";
+import React, { Fragment, useContext, useEffect, useState } from "react";
 import styles from "./page.module.css";
 import { ICategory, IExpense } from "@/libs/interfaces";
 import { CategoryContext } from "@/context/CategoryContext";
@@ -48,7 +48,7 @@ const ExpenseMovement: React.FC<{ expense: IExpense[] }> = ({ expense }) => {
     <>
       {expense.length > 0 ? (
         expense.map((e, index) => (
-          <>
+          <Fragment key={"exp" + e._id}>
             {index === 0 || e.day !== expense[index - 1].day ? (
               <>
                 <span className={styles.Movement_DateSeparator}>
@@ -62,7 +62,7 @@ const ExpenseMovement: React.FC<{ expense: IExpense[] }> = ({ expense }) => {
                 <ExpenseMovementItem {...e} />
               </>
             )}
-          </>
+          </Fragment>
         ))
       ) : (
         <p style={{ textAlign: "center", color: "gray", marginTop: "18px" }}>

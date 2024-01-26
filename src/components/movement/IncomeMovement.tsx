@@ -1,6 +1,6 @@
 "use client";
 import { IIncome } from "@/libs/interfaces";
-import React from "react";
+import React, { Fragment } from "react";
 import styles from "./page.module.css";
 import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
 import { useRouter } from "next/navigation";
@@ -26,7 +26,7 @@ const IncomeMovement: React.FC<{ income: IIncome[] }> = ({ income }) => {
     <>
       {income.length > 0 ? (
         income.map((i, index) => (
-          <>
+          <Fragment key={"inc" + i._id}>
             {index === 0 || i.day !== income[index - 1].day ? (
               <>
                 <span className={styles.Movement_DateSeparator}>
@@ -40,7 +40,7 @@ const IncomeMovement: React.FC<{ income: IIncome[] }> = ({ income }) => {
                 <IncomeMovementItem {...i} />
               </>
             )}
-          </>
+          </Fragment>
         ))
       ) : (
         <p style={{ textAlign: "center", color: "gray", marginTop: "18px" }}>
