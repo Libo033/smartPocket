@@ -4,6 +4,7 @@ import "../globals.css";
 import SideBar from "@/components/navigation/SideBar";
 import FloatingNav from "@/components/navigation/FloatingNav";
 import { CategoryContextProvider } from "@/context/CategoryContext";
+import { MovementContextProvider } from "@/context/MovementsContext";
 
 const titi = Titillium_Web({
   subsets: ["latin"],
@@ -23,12 +24,14 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body className={titi.className}>
-        <CategoryContextProvider >
-          <div className="dashboardBody">
-            <SideBar />
-            <FloatingNav />
-            {children}
-          </div>
+        <CategoryContextProvider>
+          <MovementContextProvider>
+            <div className="dashboardBody">
+              <SideBar />
+              <FloatingNav />
+              {children}
+            </div>
+          </MovementContextProvider>
         </CategoryContextProvider>
       </body>
     </html>

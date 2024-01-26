@@ -28,3 +28,26 @@ export interface ICategoryContext {
   createCategory: Function | null;
   editCategory: Function | null;
 }
+
+export interface IMovementsContext {
+  incomes: IIncome[];
+  expenses: IExpense[];
+  load: boolean;
+  createIncome: (
+    income: number,
+    day: number,
+    month: number,
+    year: number
+  ) => void;
+  createExpense: (
+    category_id: string,
+    expense: number,
+    day: number,
+    month: number,
+    year: number
+  ) => void;
+  editIncome: (income: IIncome) => void;
+  editExpense: (expense: IExpense) => void;
+  deleteIncome: (id: string) => void;
+  deleteExpense: (id: string) => void;
+}
