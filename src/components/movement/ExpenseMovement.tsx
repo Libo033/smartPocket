@@ -6,14 +6,7 @@ import { CategoryContext } from "@/context/CategoryContext";
 import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
 import { useRouter } from "next/navigation";
 
-const ExpenseMovement = ({
-  _id,
-  category_id,
-  expense,
-  year,
-  month,
-  day,
-}: IExpense) => {
+const ExpenseMovementItem = ({ _id, category_id, expense }: IExpense) => {
   const router: AppRouterInstance = useRouter();
   const [category, setCategory] = useState<ICategory | undefined>();
   const { categories } = useContext(CategoryContext);
@@ -46,6 +39,31 @@ const ExpenseMovement = ({
           </p>
         </div>
       )}
+    </>
+  );
+};
+
+const ExpenseMovement: React.FC<{ expense: IExpense[] }> = ({ expense }) => {
+  return (
+    <>
+      {expense.length > 0 &&
+        expense.map((e, index) => (
+          <>
+            {index === 0 || e.day !== expense[index - 1].day ? (
+              <>
+                <span className={styles.Movement_DateSeparator}>
+                  {e.day < 10 ? "0" + e.day : e.day}/
+                  {e.month + 1 < 10 ? "0" + (e.month + 1) : e.month}/{e.year}
+                </span>
+                <ExpenseMovementItem {...e} />
+              </>
+            ) : (
+              <>
+                <ExpenseMovementItem {...e} />
+              </>
+            )}
+          </>
+        ))}
     </>
   );
 };

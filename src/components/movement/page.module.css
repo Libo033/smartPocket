@@ -49,6 +49,14 @@
 }
 /*#endregion */
 
+.Movement_DateSeparator {
+  color: #818181;
+  font-size: 14px;
+  font-weight: 300;
+  margin-top: 10px;
+  border-bottom: 1px solid gainsboro;
+}
+
 @media (width <= 640px) {
   /*#region EXPENSEMOVEMENT */
   .ExpenseMovement_Category {

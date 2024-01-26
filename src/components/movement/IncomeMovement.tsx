@@ -5,7 +5,7 @@ import styles from "./page.module.css";
 import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
 import { useRouter } from "next/navigation";
 
-const IncomeMovement = ({ _id, income, day, month, year }: IIncome) => {
+const IncomeMovementItem = ({ _id, income }: IIncome) => {
   const router: AppRouterInstance = useRouter();
 
   return (
@@ -18,6 +18,31 @@ const IncomeMovement = ({ _id, income, day, month, year }: IIncome) => {
         ${Intl.NumberFormat().format(income)}
       </p>
     </div>
+  );
+};
+
+const IncomeMovement: React.FC<{ income: IIncome[] }> = ({ income }) => {
+  return (
+    <>
+      {income.length > 0 &&
+        income.map((i, index) => (
+          <>
+            {index === 0 || i.day !== income[index - 1].day ? (
+              <>
+                <span className={styles.Movement_DateSeparator}>
+                  {i.day < 10 ? "0" + i.day : i.day}/
+                  {i.month + 1 < 10 ? "0" + (i.month + 1) : i.month}/{i.year}
+                </span>
+                <IncomeMovementItem {...i} />
+              </>
+            ) : (
+              <>
+                <IncomeMovementItem {...i} />
+              </>
+            )}
+          </>
+        ))}
+    </>
   );
 };
 

@@ -65,23 +65,7 @@ const Movements = () => {
             </Link>
           </div>
           <div className={styles.Movements_Movements}>
-            {income.length > 0 &&
-              income.map((i, index) => (
-                <>
-                  {index === 0 || i.day !== income[index - 1].day ? (
-                    <>
-                      <span className={styles.Movements_DateSeparator}>
-                        {i.day}/{i.month + 1}/{i.year}
-                      </span>
-                      <IncomeMovement {...i} />
-                    </>
-                  ) : (
-                    <>
-                      <IncomeMovement {...i} />
-                    </>
-                  )}
-                </>
-              ))}
+            <IncomeMovement income={income} />
           </div>
         </div>
         <div className={styles.Movements_MovContainer}>
@@ -94,23 +78,7 @@ const Movements = () => {
             </Link>
           </div>
           <div className={styles.Movements_Movements}>
-            {expense.length > 0 &&
-              expense.map((e, index) => (
-                <>
-                  {index === 0 || e.day !== expense[index - 1].day ? (
-                    <>
-                      <span className={styles.Movements_DateSeparator}>
-                        {e.day}/{e.month + 1}/{e.year}
-                      </span>
-                      <ExpenseMovement {...e} />
-                    </>
-                  ) : (
-                    <>
-                      <ExpenseMovement {...e} />
-                    </>
-                  )}
-                </>
-              ))}
+            <ExpenseMovement expense={expense} />
           </div>
         </div>
       </div>
