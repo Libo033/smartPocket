@@ -1,14 +1,58 @@
-import React from "react";
+"use client";
+import React, { ChangeEvent, useContext, useEffect, useState } from "react";
 import styles from "./page.module.css";
 import Link from "next/link";
 import ExpenseMovement from "@/components/movement/ExpenseMovement";
 import IncomeMovement from "@/components/movement/IncomeMovement";
+import { MovementContext } from "@/context/MovementsContext";
+import { IExpense, IIncome } from "@/libs/interfaces";
 
 const Movements = () => {
+  const d = new Date();
+  const [date, setDate] = useState<string>(
+    d.getFullYear() +
+      "-" +
+      (d.getMonth() < 10 ? "0" + (d.getMonth() + 1) : d.getMonth() + 1)
+  );
+  const [income, setIncome] = useState<IIncome[]>([]);
+  const [expense, setExpense] = useState<IExpense[]>([]);
+  const { incomes, expenses } = useContext(MovementContext);
+
+  useEffect(() => {
+    setIncome(
+      incomes
+        .filter(
+          (i) =>
+            i.year === parseInt(date.slice(0, 5)) &&
+            i.month + 1 === parseInt(date.slice(6, 8))
+        )
+        .sort((a, b) => b.day - a.day)
+    );
+    setExpense(
+      expenses
+        .filter(
+          (e) =>
+            e.year === parseInt(date.slice(0, 5)) &&
+            e.month + 1 === parseInt(date.slice(6, 8))
+        )
+        .sort((a, b) => b.day - a.day)
+    );
+  }, [date]);
+
   return (
     <div className={styles.Movements}>
       <div className={styles.Movements_TitleContainer}>
         <h1 className={styles.Movements_Title}>Movimientos</h1>
+      </div>
+      <div className={styles.Movements_InputContainer}>
+        <input
+          className={styles.Movements_Input}
+          onChange={(e: ChangeEvent<HTMLInputElement>) =>
+            setDate(e.target.value)
+          }
+          type="month"
+          value={date}
+        />
       </div>
       <div className={styles.Movements_Container}>
         <div className={styles.Movements_MovContainer}>
@@ -21,22 +65,23 @@ const Movements = () => {
             </Link>
           </div>
           <div className={styles.Movements_Movements}>
-            <span className={styles.Movements_DateSeparator}>15/01/2024</span>
-            <IncomeMovement
-              _id={"1"}
-              income={315600}
-              year={2024}
-              month={1}
-              day={15}
-            />
-            <span className={styles.Movements_DateSeparator}>12/01/2024</span>
-            <IncomeMovement
-              _id={"2"}
-              income={750}
-              year={2024}
-              month={1}
-              day={12}
-            />
+            {income.length > 0 &&
+              income.map((i, index) => (
+                <>
+                  {index === 0 || i.day !== income[index - 1].day ? (
+                    <>
+                      <span className={styles.Movements_DateSeparator}>
+                        {i.day}/{i.month + 1}/{i.year}
+                      </span>
+                      <IncomeMovement {...i} />
+                    </>
+                  ) : (
+                    <>
+                      <IncomeMovement {...i} />
+                    </>
+                  )}
+                </>
+              ))}
           </div>
         </div>
         <div className={styles.Movements_MovContainer}>
@@ -49,40 +94,23 @@ const Movements = () => {
             </Link>
           </div>
           <div className={styles.Movements_Movements}>
-            <span className={styles.Movements_DateSeparator}>12/01/2024</span>
-            <ExpenseMovement
-              _id={"1"}
-              category_id={"1"}
-              expense={13500}
-              year={2024}
-              month={1}
-              day={12}
-            />
-            <ExpenseMovement
-              _id={"2"}
-              category_id={"2"}
-              expense={116000}
-              year={2024}
-              month={1}
-              day={12}
-            />
-            <ExpenseMovement
-              _id={"3"}
-              category_id={"3"}
-              expense={2700}
-              year={2024}
-              month={1}
-              day={12}
-            />
-            <span className={styles.Movements_DateSeparator}>10/01/2024</span>
-            <ExpenseMovement
-              _id={"4"}
-              category_id={"4"}
-              expense={90000}
-              year={2024}
-              month={1}
-              day={12}
-            />
+            {expense.length > 0 &&
+              expense.map((e, index) => (
+                <>
+                  {index === 0 || e.day !== expense[index - 1].day ? (
+                    <>
+                      <span className={styles.Movements_DateSeparator}>
+                        {e.day}/{e.month + 1}/{e.year}
+                      </span>
+                      <ExpenseMovement {...e} />
+                    </>
+                  ) : (
+                    <>
+                      <ExpenseMovement {...e} />
+                    </>
+                  )}
+                </>
+              ))}
           </div>
         </div>
       </div>

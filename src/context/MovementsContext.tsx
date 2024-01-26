@@ -10,6 +10,20 @@ let defIncome: IIncome[] = [
     month: 0,
     year: 2024,
   },
+  {
+    _id: "2",
+    income: 15000,
+    day: 16,
+    month: 0,
+    year: 2024,
+  },
+  {
+    _id: "3",
+    income: 1500,
+    day: 26,
+    month: 0,
+    year: 2024,
+  }
 ];
 
 let defExpense: IExpense[] = [
@@ -18,6 +32,22 @@ let defExpense: IExpense[] = [
     category_id: "2",
     expense: 3000,
     day: 20,
+    month: 0,
+    year: 2024,
+  },
+  {
+    _id: "2",
+    category_id: "4",
+    expense: 45000,
+    day: 1,
+    month: 0,
+    year: 2024,
+  },
+  {
+    _id: "3",
+    category_id: "2",
+    expense: 4500,
+    day: 12,
     month: 0,
     year: 2024,
   },
