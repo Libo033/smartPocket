@@ -23,7 +23,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es">
-      <body className={titi.className}>
+      <body style={{margin: "0"}} className={titi.className}>
         <CategoryContextProvider>
           <MovementContextProvider>
             <div className="dashboardBody">
