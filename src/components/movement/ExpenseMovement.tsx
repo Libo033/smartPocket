@@ -46,7 +46,7 @@ const ExpenseMovementItem = ({ _id, category_id, expense }: IExpense) => {
 const ExpenseMovement: React.FC<{ expense: IExpense[] }> = ({ expense }) => {
   return (
     <>
-      {expense.length > 0 &&
+      {expense.length > 0 ? (
         expense.map((e, index) => (
           <>
             {index === 0 || e.day !== expense[index - 1].day ? (
@@ -63,7 +63,12 @@ const ExpenseMovement: React.FC<{ expense: IExpense[] }> = ({ expense }) => {
               </>
             )}
           </>
-        ))}
+        ))
+      ) : (
+        <p style={{ textAlign: "center", color: "gray", marginTop: "18px" }}>
+          Sin movimientos
+        </p>
+      )}
     </>
   );
 };

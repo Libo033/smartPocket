@@ -24,7 +24,7 @@ const IncomeMovementItem = ({ _id, income }: IIncome) => {
 const IncomeMovement: React.FC<{ income: IIncome[] }> = ({ income }) => {
   return (
     <>
-      {income.length > 0 &&
+      {income.length > 0 ? (
         income.map((i, index) => (
           <>
             {index === 0 || i.day !== income[index - 1].day ? (
@@ -41,7 +41,12 @@ const IncomeMovement: React.FC<{ income: IIncome[] }> = ({ income }) => {
               </>
             )}
           </>
-        ))}
+        ))
+      ) : (
+        <p style={{ textAlign: "center", color: "gray", marginTop: "18px" }}>
+          Sin movimientos
+        </p>
+      )}
     </>
   );
 };

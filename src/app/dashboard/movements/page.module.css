@@ -96,4 +96,8 @@
   .Movements_DateSeparator {
     font-size: 13px;
   }
+
+  .Movements_Input {
+    width: 45%;
+  }
 }
