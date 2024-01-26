@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "../page.module.css";
 import Link from "next/link";
+import IncomeForm from "@/components/income/IncomeForm";
 
 const IncomeNew = () => {
   return (
@@ -12,6 +13,9 @@ const IncomeNew = () => {
         <Link className="linkA" href={"/dashboard/movements"}>
           Volver
         </Link>
+      </div>
+      <div>
+        <IncomeForm id={null} />
       </div>
     </div>
   );

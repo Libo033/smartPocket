@@ -1,0 +1,106 @@
+.IncomeForm {
+  padding: 3% 3% 0% 3%;
+  display: flex;
+  flex-direction: column;
+  gap: 21px;
+}
+
+.IncomeForm_InputsContainer {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.IncomeForm_Container {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.IncomeForm_Container label {
+  font-size: 17px;
+  font-weight: 500;
+  margin-bottom: 1px;
+}
+
+.IncomeForm_Container input {
+  width: 51%;
+  border: 1px solid #b13e8f;
+  font-size: 17px;
+  border-radius: 6px;
+  padding-inline: 4.5px;
+  padding-block: 6px;
+  outline: none;
+}
+
+.IncomeForm_ButtonGroup {
+  margin-block: 45px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.IncomeForm_ButtonGroup button {
+  transition: 120ms ease-in-out;
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  color: #303030;
+  font-weight: 600;
+  font-size: 17px;
+  border: 1px solid #c0c0c0;
+  border-radius: 12px;
+  text-transform: uppercase;
+  height: 45px;
+}
+
+.IncomeForm_Create:hover {
+  transition: 120ms ease-in-out;
+  transform: translateY(-1px);
+  box-shadow: 1px 3px 9px #45454590;
+}
+
+.IncomeForm_Edit:hover {
+  transition: 120ms ease-in-out;
+  transform: translateY(-1px);
+  box-shadow: 1px 3px 9px #45454590;
+}
+
+.IncomeForm_Delete:hover {
+  transition: 120ms ease-in-out;
+  transform: translateY(-1px);
+  box-shadow: 1px 3px 9px #ff000072;
+  background-color: #ff6363;
+}
+
+@media (641px <= width <= 1007px) {
+  .IncomeForm_Container input {
+    width: 72%;
+  }
+
+  .IncomeForm_ButtonGroup button {
+    width: 45%;
+  }
+}
+
+@media (width <= 640px) {
+  .IncomeForm {
+    padding: 6% 3% 0% 3%;
+  }
+
+  .IncomeForm_ButtonGroup {
+    margin-block: 30px;
+  }
+
+  .IncomeForm_Container input {
+    width: 84%;
+  }
+
+  .IncomeForm_ButtonGroup button {
+    width: 48%;
+  }
+}
