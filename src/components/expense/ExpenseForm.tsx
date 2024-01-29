@@ -4,14 +4,25 @@ import styles from "./page.module.css";
 import { useRouter } from "next/navigation";
 import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
 import { MovementContext } from "@/context/MovementsContext";
+import { CategoryContext } from "@/context/CategoryContext";
+import {
+  FormControl,
+  InputLabel,
+  MenuItem,
+  Select,
+  SelectChangeEvent,
+} from "@mui/material";
 
 const ExpenseForm: React.FC<{ id: string | null }> = ({ id }) => {
   const router: AppRouterInstance = useRouter();
   const { expenses, createExpense, editExpense, deleteExpense } =
     useContext(MovementContext);
+  const { categories, load } = useContext(CategoryContext);
   const [expense, setExpense] = useState<number>(0);
+  const [category, setCategory] = useState<string>("");
   const $expense = useId();
   const $date = useId();
+  const $category = useId();
 
   const handleExpenseOptions = (e: FormEvent) => {
     e.preventDefault();
@@ -24,7 +35,6 @@ const ExpenseForm: React.FC<{ id: string | null }> = ({ id }) => {
   };
 
   const handleDeleteExpense = (id: string) => {
-
     router.push("/dashboard/movements");
   };
 
@@ -50,13 +60,33 @@ const ExpenseForm: React.FC<{ id: string | null }> = ({ id }) => {
           <input type="date" id={$date} required />
         </div>
       </div>
+      <div className={styles.ExpenseForm_Container}>
+        <label htmlFor={$category}>Categoria</label>
+        <select
+          id={$category}
+          value={category}
+          onChange={(e) => setCategory(e.target.value as string)}
+        >
+          {load &&
+            categories.length > 0 &&
+            categories.map((c) => (
+              <option key={c._id} value={c._id}>
+                {c.categoria}
+              </option>
+            ))}
+        </select>
+      </div>
       <div className={styles.ExpenseForm_ButtonGroup}>
         {id ? (
           <>
             <button type="submit" className={styles.ExpenseForm_Edit}>
               EDITAR
             </button>
-            <button type="button" onClick={() => handleDeleteExpense(id)} className={styles.ExpenseForm_Delete}>
+            <button
+              type="button"
+              onClick={() => handleDeleteExpense(id)}
+              className={styles.ExpenseForm_Delete}
+            >
               ELIMINAR
             </button>
           </>
