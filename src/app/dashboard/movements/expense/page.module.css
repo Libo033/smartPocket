@@ -8,6 +8,19 @@
   margin-left: 9%;
 }
 
+.Expense_TitleContainer {
+  padding: 7% 3% 0% 3%;
+}
+
+.Expense_Title {
+  font-size: 36px;
+  font-weight: 600;
+}
+
+.Expense_LinkContainer {
+  padding: 0% 3% 0% 3%;
+}
+
 @media (641px <= width <= 1007px)  {
   .Expense {
     margin-left: 12%;
