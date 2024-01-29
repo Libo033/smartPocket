@@ -19,7 +19,7 @@ const ExpenseForm: React.FC<{ id: string | null }> = ({ id }) => {
     useContext(MovementContext);
   const { categories, load } = useContext(CategoryContext);
   const [expense, setExpense] = useState<number>(0);
-  const [category, setCategory] = useState<string>("");
+  const [category, setCategory] = useState<string>("0");
   const $expense = useId();
   const $date = useId();
   const $category = useId();
@@ -43,7 +43,7 @@ const ExpenseForm: React.FC<{ id: string | null }> = ({ id }) => {
         year: y,
       };
 
-      if (expense > 0) {
+      if (expense > 0 && category !== "0") {
         editExpense(expenseToEdit);
       }
     } else {
@@ -53,7 +53,7 @@ const ExpenseForm: React.FC<{ id: string | null }> = ({ id }) => {
       let m: number = parseInt(date.slice(5, 7));
       let d: number = parseInt(date.slice(8, 10));
 
-      if (expense > 0) {
+      if (expense > 0 && category !== "0") {
         createExpense(category, expense, d, m - 1, y);
       }
     }
@@ -115,7 +115,9 @@ const ExpenseForm: React.FC<{ id: string | null }> = ({ id }) => {
           id={$category}
           value={category}
           onChange={(e) => setCategory(e.target.value as string)}
+          required
         >
+          <option value={"0"}>--- categorias ---</option>
           {load &&
             categories.length > 0 &&
             categories.map((c) => (
