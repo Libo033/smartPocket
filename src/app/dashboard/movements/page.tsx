@@ -37,7 +37,7 @@ const Movements = () => {
         )
         .sort((a, b) => b.day - a.day)
     );
-  }, [date]);
+  }, [date, incomes, expenses]);
 
   return (
     <div className={styles.Movements}>
