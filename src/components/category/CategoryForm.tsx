@@ -3,6 +3,7 @@ import styles from "./page.module.css";
 import { CirclePicker, ColorResult, HuePicker } from "react-color";
 import { useRouter } from "next/navigation";
 import { CategoryContext } from "@/context/CategoryContext";
+import { TextField } from "@mui/material";
 
 const CategoryForm: React.FC<{
   handleColors: Function;
@@ -80,8 +81,13 @@ const CategoryForm: React.FC<{
       action="post"
     >
       <div className={styles.CategoryForm_Container}>
-        <label htmlFor={$name}>Nombre</label>
-        <input type="text" id={$name} autoComplete="off" required />
+        <TextField
+          style={{ width: "300px" }}
+          label="Nombre"
+          id={$name}
+          variant="outlined"
+          autoComplete="off"
+        />
       </div>
       <div className={styles.CategoryForm_Container}>
         <label htmlFor={$color}>Color</label>

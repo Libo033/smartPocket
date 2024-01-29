@@ -11,6 +11,7 @@ import { MovementContext } from "@/context/MovementsContext";
 import { useRouter } from "next/navigation";
 import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
 import { IIncome } from "@/libs/interfaces";
+import { TextField } from "@mui/material";
 
 const IncomeForm: React.FC<{ id: string | null }> = ({ id }) => {
   const router: AppRouterInstance = useRouter();
@@ -87,8 +88,8 @@ const IncomeForm: React.FC<{ id: string | null }> = ({ id }) => {
     >
       <div className={styles.IncomeForm_InputsContainer}>
         <div className={styles.IncomeForm_Container}>
-          <label htmlFor={$income}>Ingreso $</label>
-          <input
+          <TextField
+            label="Ingreso $"
             type="number"
             id={$income}
             value={income}
@@ -97,8 +98,7 @@ const IncomeForm: React.FC<{ id: string | null }> = ({ id }) => {
           />
         </div>
         <div className={styles.IncomeForm_Container}>
-          <label htmlFor={$date}>Fecha</label>
-          <input type="date" id={$date} required />
+          <TextField type="date" id={$date} required />
         </div>
       </div>
       <div className={styles.IncomeForm_ButtonGroup}>

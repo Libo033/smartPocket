@@ -20,40 +20,6 @@
   gap: 3px;
 }
 
-.ExpenseForm_Container select {
-  width: 51%;
-  border: 1px solid #b13e8f;
-  font-size: 17px;
-  border-radius: 6px;
-  padding-inline: 4.5px;
-  padding-block: 6px;
-  outline: none;
-}
-
-.ExpenseForm_Container select:focus {
-  border: 1px solid #f3a0d0;
-}
-
-.ExpenseForm_Container label {
-  font-size: 17px;
-  font-weight: 500;
-  margin-bottom: 1px;
-}
-
-.ExpenseForm_Container input {
-  width: 51%;
-  border: 1px solid #b13e8f;
-  font-size: 17px;
-  border-radius: 6px;
-  padding-inline: 4.5px;
-  padding-block: 6px;
-  outline: none;
-}
-
-.ExpenseForm_Container input:focus {
-  border: 1px solid #f3a0d0;
-}
-
 .ExpenseForm_ButtonGroup {
   margin-block: 45px;
   display: flex;

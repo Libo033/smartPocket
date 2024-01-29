@@ -20,22 +20,6 @@
   gap: 3px;
 }
 
-.IncomeForm_Container label {
-  font-size: 17px;
-  font-weight: 500;
-  margin-bottom: 1px;
-}
-
-.IncomeForm_Container input {
-  width: 51%;
-  border: 1px solid #b13e8f;
-  font-size: 17px;
-  border-radius: 6px;
-  padding-inline: 4.5px;
-  padding-block: 6px;
-  outline: none;
-}
-
 .IncomeForm_ButtonGroup {
   margin-block: 45px;
   display: flex;

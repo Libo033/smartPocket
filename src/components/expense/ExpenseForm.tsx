@@ -12,6 +12,14 @@ import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.share
 import { MovementContext } from "@/context/MovementsContext";
 import { CategoryContext } from "@/context/CategoryContext";
 import { IExpense } from "@/libs/interfaces";
+import {
+  FormControl,
+  InputLabel,
+  MenuItem,
+  Select,
+  SelectChangeEvent,
+  TextField,
+} from "@mui/material";
 
 const ExpenseForm: React.FC<{ id: string | null }> = ({ id }) => {
   const router: AppRouterInstance = useRouter();
@@ -95,8 +103,8 @@ const ExpenseForm: React.FC<{ id: string | null }> = ({ id }) => {
     >
       <div className={styles.ExpenseForm_InputsContainer}>
         <div className={styles.ExpenseForm_Container}>
-          <label htmlFor={$expense}>Egreso $</label>
-          <input
+          <TextField
+            label="Egreso $"
             type="number"
             id={$expense}
             value={expense}
@@ -105,27 +113,31 @@ const ExpenseForm: React.FC<{ id: string | null }> = ({ id }) => {
           />
         </div>
         <div className={styles.ExpenseForm_Container}>
-          <label htmlFor={$date}>Fecha</label>
-          <input type="date" id={$date} required />
+          <TextField label="Fecha" type="date" id={$date} required />
         </div>
       </div>
       <div className={styles.ExpenseForm_Container}>
-        <label htmlFor={$category}>Categoria</label>
-        <select
-          id={$category}
-          value={category}
-          onChange={(e) => setCategory(e.target.value as string)}
-          required
-        >
-          <option value={"0"}>--- categorias ---</option>
-          {load &&
-            categories.length > 0 &&
-            categories.map((c) => (
-              <option key={c._id} value={c._id}>
-                {c.categoria}
-              </option>
-            ))}
-        </select>
+        <FormControl fullWidth>
+          <InputLabel id="demo-simple-select-label">Categoria</InputLabel>
+          <Select
+            style={{ width: "calc(100% - 9px)" }}
+            id={$category}
+            value={category}
+            label="Categoria"
+            onChange={(e: SelectChangeEvent) =>
+              setCategory(e.target.value as string)
+            }
+            required
+          >
+            {load &&
+              categories.length > 0 &&
+              categories.map((c) => (
+                <MenuItem key={c._id} value={c._id}>
+                  {c.categoria}
+                </MenuItem>
+              ))}
+          </Select>
+        </FormControl>
       </div>
       <div className={styles.ExpenseForm_ButtonGroup}>
         {id ? (

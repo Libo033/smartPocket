@@ -91,20 +91,6 @@
   margin-bottom: 1px;
 }
 
-.CategoryForm_Container input {
-  width: 300px;
-  border: 1px solid #b13e8f;
-  font-size: 17px;
-  border-radius: 6px;
-  padding-inline: 4.5px;
-  padding-block: 6px;
-  outline: none;
-}
-
-.CategoryForm_Container input:focus {
-  border: 1px solid #f3a0d0;
-}
-
 .CategoryForm_ColorPicker {
   margin-top: 45px;
   min-width: 100%;

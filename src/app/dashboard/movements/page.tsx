@@ -6,6 +6,7 @@ import ExpenseMovement from "@/components/movement/ExpenseMovement";
 import IncomeMovement from "@/components/movement/IncomeMovement";
 import { MovementContext } from "@/context/MovementsContext";
 import { IExpense, IIncome } from "@/libs/interfaces";
+import { TextField } from "@mui/material";
 
 const Movements = () => {
   const d = new Date();
@@ -45,8 +46,8 @@ const Movements = () => {
         <h1 className={styles.Movements_Title}>Movimientos</h1>
       </div>
       <div className={styles.Movements_InputContainer}>
-        <input
-          className={styles.Movements_Input}
+        <TextField
+          label="Mes"
           onChange={(e: ChangeEvent<HTMLInputElement>) =>
             setDate(e.target.value)
           }
