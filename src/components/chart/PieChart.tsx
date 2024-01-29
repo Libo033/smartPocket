@@ -54,6 +54,7 @@ const PieChart = () => {
       <div className={styles.PieChart_Info}>
         {pieChartData.labels.map((category, i) => (
           <p
+            key={category}
             style={{
               fontSize: "16px",
               display: "flex",
