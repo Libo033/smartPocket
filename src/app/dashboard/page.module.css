@@ -1,34 +1,9 @@
-.Dashboard {
-  z-index: 0;
-  width: 100%;
-  max-width: 1920px;
-  margin-left: auto;
-  margin-right: auto;
-  height: 100vh;
-  margin-left: 9%;
-  overflow-y: auto;
-}
 
-.Dashboard_TitleContainer {
-  padding: 7% 3% 0% 3%;
-}
-
-.Dashboard_Title {
-  font-size: 36px;
-  font-weight: 600;
-}
 
 @media (641px <= width <= 1007px) {
-  .Dashboard {
-    margin-left: 12%;
-  }
+
 }
 
 @media (width <= 640px) {
-  .Dashboard {
-    margin-left: 0;
-    min-height: 100vh;
-    height: fit-content;
-    overflow-x: hidden;
-  }
+
 }

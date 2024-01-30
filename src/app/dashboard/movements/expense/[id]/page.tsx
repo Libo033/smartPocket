@@ -5,9 +5,9 @@ import ExpenseForm from "@/components/expense/ExpenseForm";
 
 const ExpenseId = ({ params }: { params: { id: string } }) => {
   return (
-    <div className={styles.Expense}>
-      <div className={styles.Expense_TitleContainer}>
-        <h1 className={styles.Expense_Title}>Editar Egreso</h1>
+    <div className="page">
+      <div className="h1_container">
+        <h1>Editar Egreso</h1>
       </div>
       <div className={styles.Expense_LinkContainer}>
         <Link className="linkA" href={"/dashboard/movements"}>

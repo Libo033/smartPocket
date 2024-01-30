@@ -10,9 +10,9 @@ const Category = () => {
   const { categories, load } = useContext(CategoryContext);
 
   return (
-    <div className={styles.Category}>
-      <div className={styles.Category_TitleContainer}>
-        <h1 className={styles.Category_Title}>Categorias</h1>
+    <div className="page">
+      <div className="h1_container">
+        <h1>Categorias</h1>
       </div>
       <div className={styles.Category_LinkContainer}>
         <Link className="linkA" href={"/dashboard/category/new"}>

@@ -41,9 +41,9 @@ const Movements = () => {
   }, [date, incomes, expenses]);
 
   return (
-    <div className={styles.Movements}>
-      <div className={styles.Movements_TitleContainer}>
-        <h1 className={styles.Movements_Title}>Movimientos</h1>
+    <div className="page">
+      <div className="h1_container">
+        <h1>Movimientos</h1>
       </div>
       <div className={styles.Movements_InputContainer}>
         <TextField

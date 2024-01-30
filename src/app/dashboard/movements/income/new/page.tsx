@@ -5,9 +5,9 @@ import IncomeForm from "@/components/income/IncomeForm";
 
 const IncomeNew = () => {
   return (
-    <div className={styles.Income}>
-      <div className={styles.Income_TitleContainer}>
-        <h1 className={styles.Income_Title}>Nuevo Ingreso</h1>
+    <div className="page">
+      <div className="h1_container">
+        <h1>Nuevo Ingreso</h1>
       </div>
       <div className={styles.Income_LinkContainer}>
         <Link className="linkA" href={"/dashboard/movements"}>

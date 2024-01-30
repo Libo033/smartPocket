@@ -12,9 +12,9 @@ const CategoryId = ({ params }: { params: { id: string } }) => {
   };
 
   return (
-    <div className={styles.Category}>
-      <div className={styles.Category_TitleContainer}>
-        <h1 className={styles.Category_Title}>Editar Categoria</h1>
+    <div className="page">
+      <div className="h1_container">
+        <h1>Editar Categoria</h1>
       </div>
       <div className={styles.Category_LinkContainer}>
         <Link className="linkA" href={"/dashboard/category"}>

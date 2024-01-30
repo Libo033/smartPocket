@@ -3,9 +3,9 @@ import styles from "@/app/dashboard/page.module.css";
 
 const Dashboard = () => {
   return (
-    <div className={styles.Dashboard}>
-      <div className={styles.Dashboard_TitleContainer}>
-        <h1 className={styles.Dashboard_Title}>Tablero</h1>
+    <div className="page">
+      <div className="h1_container">
+        <h1>Tablero</h1>
       </div>
     </div>
   );

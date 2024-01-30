@@ -1,37 +1,9 @@
-.Expense {
-  z-index: 0;
-  width: 100%;
-  max-width: 1920px;
-  margin-left: auto;
-  margin-right: auto;
-  height: 100vh;
-  margin-left: 9%;
-}
-
-.Expense_TitleContainer {
-  padding: 7% 3% 0% 3%;
-}
-
-.Expense_Title {
-  font-size: 36px;
-  font-weight: 600;
-}
-
 .Expense_LinkContainer {
   padding: 0% 3% 0% 3%;
 }
 
-@media (641px <= width <= 1007px)  {
-  .Expense {
-    margin-left: 12%;
-  }
+@media (641px <= width <= 1007px) {
 }
 
 @media (width <= 640px) {
-  .Expense {
-    margin-left: 0;
-    min-height: 100vh;
-    height: fit-content;
-    overflow-x: hidden;
-  }
 }

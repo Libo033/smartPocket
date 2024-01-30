@@ -12,9 +12,9 @@ const CategoryNew = () => {
   };
 
   return (
-    <div className={styles.Category}>
-      <div className={styles.Category_TitleContainer}>
-        <h1 className={styles.Category_Title}>Nueva Categoria</h1>
+    <div className="page">
+      <div className="h1_container">
+        <h1>Nueva Categoria</h1>
       </div>
       <div className={styles.Category_LinkContainer}>
         <Link className="linkA" href={"/dashboard/category"}>

@@ -41,9 +41,9 @@ const Chart = () => {
   };
 
   return (
-    <div className={styles.Chart}>
-      <div className={styles.Chart_TitleContainer}>
-        <h1 className={styles.Chart_Title}>Graficos</h1>
+    <div className="page">
+      <div className="h1_container">
+        <h1>Graficos</h1>
       </div>
       <div className={styles.Chart_InputContainer}>
         <ChartInput
