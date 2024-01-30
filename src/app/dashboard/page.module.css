@@ -1,4 +1,22 @@
+.Dashboard_LinkContainer {
+  padding: 0% 3% 0% 3%;
+  display: flex;
+  gap: 30px;
+}
 
+.Dashboard_ChartContainer {
+  margin: 3% 3% 0% 3%;
+  width: 94%;
+  height: auto;
+  display: flex;
+}
+
+.Dashboard_IncomeMonth {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 @media (641px <= width <= 1007px) {
 
