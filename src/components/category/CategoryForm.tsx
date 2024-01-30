@@ -1,4 +1,10 @@
-import React, { FormEvent, useContext, useEffect, useId } from "react";
+import React, {
+  FormEvent,
+  useContext,
+  useEffect,
+  useId,
+  useState,
+} from "react";
 import styles from "./page.module.css";
 import { CirclePicker, ColorResult, HuePicker } from "react-color";
 import { useRouter } from "next/navigation";
@@ -10,6 +16,7 @@ const CategoryForm: React.FC<{
   background: string;
   id: string | null;
 }> = ({ handleColors, background, id }) => {
+  const [error, setError] = useState<Error | undefined>(undefined);
   const { categories, createCategory, editCategory } =
     useContext(CategoryContext);
   const router = useRouter();
@@ -38,28 +45,40 @@ const CategoryForm: React.FC<{
   ];
 
   const handleCategory = (e: FormEvent) => {
-    e.preventDefault();
+    try {
+      e.preventDefault();
 
-    if (id) {
-      // Editar
-      if (editCategory) {
-        editCategory(
-          id,
-          (document.getElementById($name) as HTMLInputElement).value,
-          background.slice(0, 7)
-        );
+      if ((document.getElementById($name) as HTMLInputElement).value === "") {
+        throw new Error("La categoria necesita un nombre.", {
+          cause: "Empty Name",
+        });
       }
-    } else {
-      // Crear
-      if (createCategory) {
-        createCategory(
-          (document.getElementById($name) as HTMLInputElement).value,
-          background.slice(0, 7)
-        );
+
+      if (id) {
+        // Editar
+        if (editCategory) {
+          editCategory(
+            id,
+            (document.getElementById($name) as HTMLInputElement).value,
+            background.slice(0, 7)
+          );
+        }
+      } else {
+        // Crear
+        if (createCategory) {
+          createCategory(
+            (document.getElementById($name) as HTMLInputElement).value,
+            background.slice(0, 7)
+          );
+        }
+      }
+
+      router.push("/dashboard/category");
+    } catch (error) {
+      if (error instanceof Error) {
+        setError(error);
       }
     }
-
-    router.push("/dashboard/category");
   };
 
   useEffect(() => {
@@ -87,6 +106,8 @@ const CategoryForm: React.FC<{
           id={$name}
           variant="outlined"
           autoComplete="off"
+          error={error?.cause === "Empty Name" ? true : false}
+          onChange={(e) => e.target.value !== "" && setError(undefined)}
         />
       </div>
       <div className={styles.CategoryForm_Container}>
