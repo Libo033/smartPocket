@@ -18,41 +18,53 @@ const IncomeForm: React.FC<{ id: string | null }> = ({ id }) => {
   const { incomes, createIncome, editIncome, deleteIncome } =
     useContext(MovementContext);
   const [income, setIncome] = useState<number>(0);
+  const [error, setError] = useState<Error | undefined>(undefined);
   const $income = useId();
   const $date = useId();
 
   const handleIncomeOptions = (e: FormEvent) => {
-    e.preventDefault();
+    try {
+      e.preventDefault();
 
-    if (id) {
       const date: string = (document.getElementById($date) as HTMLInputElement)
         .value;
       let y: number = parseInt(date.slice(0, 4));
       let m: number = parseInt(date.slice(5, 7));
       let d: number = parseInt(date.slice(8, 10));
 
-      const incomeToEdit: IIncome = {
-        _id: id,
-        income,
-        day: d,
-        month: m - 1,
-        year: y,
-      };
+      if (y < 2000) {
+        throw new Error("Ingrese un año posterior al 2000.", {
+          cause: "YearTooOld",
+        });
+      }
 
-      editIncome(incomeToEdit);
-    } else {
-      const date: string = (document.getElementById($date) as HTMLInputElement)
-        .value;
-      let y: number = parseInt(date.slice(0, 4));
-      let m: number = parseInt(date.slice(5, 7));
-      let d: number = parseInt(date.slice(8, 10));
+      if (id) {
+        const incomeToEdit: IIncome = {
+          _id: id,
+          income,
+          day: d,
+          month: m - 1,
+          year: y,
+        };
+        if (income > 0) {
+          editIncome(incomeToEdit);
+        } else {
+          throw new Error("", { cause: "IncomeNegative" });
+        }
+      } else {
+        if (income > 0) {
+          createIncome(income, d, m - 1, y);
+        } else {
+          throw new Error("", { cause: "IncomeNegative" });
+        }
+      }
 
-      if (income > 0) {
-        createIncome(income, d, m - 1, y);
+      router.push("/dashboard/movements");
+    } catch (error) {
+      if (error instanceof Error) {
+        setError(error);
       }
     }
-
-    router.push("/dashboard/movements");
   };
 
   const handleDeleteIncome = (id: string) => {
@@ -93,12 +105,23 @@ const IncomeForm: React.FC<{ id: string | null }> = ({ id }) => {
             type="number"
             id={$income}
             value={income}
-            onChange={(e) => setIncome(parseFloat(e.target.value))}
+            onChange={(e) => {
+              setIncome(parseFloat(e.target.value));
+              setError(undefined);
+            }}
+            error={error?.cause === "IncomeNegative"}
             required
           />
         </div>
         <div className={styles.IncomeForm_Container}>
-          <TextField type="date" id={$date} required />
+          <TextField
+            type="date"
+            id={$date}
+            error={error?.cause === "YearTooOld"}
+            onChange={() => setError(undefined)}
+            helperText={error?.message}
+            required
+          />
         </div>
       </div>
       <div className={styles.IncomeForm_ButtonGroup}>

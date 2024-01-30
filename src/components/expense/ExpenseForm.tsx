@@ -27,46 +27,57 @@ const ExpenseForm: React.FC<{ id: string | null }> = ({ id }) => {
     useContext(MovementContext);
   const { categories, load } = useContext(CategoryContext);
   const [expense, setExpense] = useState<number>(0);
-  const [category, setCategory] = useState<string>("0");
+  const [category, setCategory] = useState<string>("");
+  const [error, setError] = useState<Error | undefined>(undefined);
   const $expense = useId();
   const $date = useId();
   const $category = useId();
 
   const handleExpenseOptions = (e: FormEvent) => {
-    e.preventDefault();
+    try {
+      e.preventDefault();
 
-    if (id) {
       const date: string = (document.getElementById($date) as HTMLInputElement)
         .value;
       let y: number = parseInt(date.slice(0, 4));
       let m: number = parseInt(date.slice(5, 7));
       let d: number = parseInt(date.slice(8, 10));
 
-      const expenseToEdit: IExpense = {
-        _id: id,
-        category_id: category,
-        expense,
-        day: d,
-        month: m - 1,
-        year: y,
-      };
-
-      if (expense > 0 && category !== "0") {
-        editExpense(expenseToEdit);
+      if (y < 2000) {
+        throw new Error("Ingrese un año posterior al 2000.", {
+          cause: "YearTooOld",
+        });
       }
-    } else {
-      const date: string = (document.getElementById($date) as HTMLInputElement)
-        .value;
-      let y: number = parseInt(date.slice(0, 4));
-      let m: number = parseInt(date.slice(5, 7));
-      let d: number = parseInt(date.slice(8, 10));
 
-      if (expense > 0 && category !== "0") {
-        createExpense(category, expense, d, m - 1, y);
+      if (id) {
+        const expenseToEdit: IExpense = {
+          _id: id,
+          category_id: category,
+          expense,
+          day: d,
+          month: m - 1,
+          year: y,
+        };
+
+        if (expense > 0) {
+          editExpense(expenseToEdit);
+        } else {
+          throw new Error("", { cause: "ExpenseNegative" });
+        }
+      } else {
+        if (expense > 0) {
+          createExpense(category, expense, d, m - 1, y);
+        } else {
+          throw new Error("", { cause: "ExpenseNegative" });
+        }
+      }
+
+      router.push("/dashboard/movements");
+    } catch (error) {
+      if (error instanceof Error) {
+        setError(error);
       }
     }
-
-    router.push("/dashboard/movements");
   };
 
   const handleDeleteExpense = (id: string) => {
@@ -108,12 +119,24 @@ const ExpenseForm: React.FC<{ id: string | null }> = ({ id }) => {
             type="number"
             id={$expense}
             value={expense}
-            onChange={(e) => setExpense(parseFloat(e.target.value))}
+            onChange={(e) => {
+              setExpense(parseFloat(e.target.value));
+              setError(undefined);
+            }}
+            error={error?.cause === "ExpenseNegative"}
             required
           />
         </div>
         <div className={styles.ExpenseForm_Container}>
-          <TextField label="Fecha" type="date" id={$date} required />
+          <TextField
+            label="Fecha"
+            type="date"
+            id={$date}
+            error={error?.cause === "YearTooOld"}
+            onChange={() => setError(undefined)}
+            helperText={error?.message}
+            required
+          />
         </div>
       </div>
       <div className={styles.ExpenseForm_Container}>
