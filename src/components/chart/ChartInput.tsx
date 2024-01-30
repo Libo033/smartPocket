@@ -8,23 +8,30 @@ import styles from "./page.module.css";
 
 const ChartInput: React.FC<{
   month: string;
-  setMonth: React.Dispatch<SetStateAction<string>>;
+  setMonth: (e: SelectChangeEvent) => void;
   year: string;
-  setYear: React.Dispatch<SetStateAction<string>>;
+  setYear: (e: ChangeEvent<HTMLInputElement>) => void;
   handleChart: Function;
-}> = ({ month, setMonth, year, setYear, handleChart }) => {
+  error: Error | undefined;
+}> = ({ month, setMonth, year, setYear, handleChart, error }) => {
   return (
     <>
       <FormControl fullWidth>
-        <InputLabel id="demo-simple-select-label">Mes</InputLabel>
+        <InputLabel
+          error={error?.cause === "EmptyPetition" ? true : false}
+          id="demo-simple-select-label"
+        >
+          Mes
+        </InputLabel>
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
           value={month}
           label="Mes"
           onChange={(e: SelectChangeEvent) =>
-            setMonth(e.target.value as string)
+            setMonth(e)
           }
+          error={error?.cause === "EmptyPetition" ? true : false}
         >
           <MenuItem value={"anual"}>Anual</MenuItem>
           <MenuItem value={1}>enero</MenuItem>
@@ -46,8 +53,16 @@ const ChartInput: React.FC<{
         label="Año"
         autoComplete="off"
         value={year}
-        onChange={(e: ChangeEvent<HTMLInputElement>) =>
-          setYear(e.target.value as string)
+        onChange={(e: ChangeEvent<HTMLInputElement>) => setYear(e)}
+        error={
+          error?.cause === "YearInput" || error?.cause === "EmptyPetition"
+            ? true
+            : false
+        }
+        helperText={
+          error?.cause === "YearInput" || error?.cause === "EmptyPetition"
+            ? error.message
+            : ""
         }
       />
       <button

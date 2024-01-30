@@ -1,14 +1,30 @@
 "use client";
-import React, { useState } from "react";
+import React, { ChangeEvent, useState } from "react";
 import styles from "./page.module.css";
 import ChartInput from "@/components/chart/ChartInput";
 import PieChart from "@/components/chart/PieChart";
 import BarChart from "@/components/chart/BarChart";
+import { SelectChangeEvent } from "@mui/material";
 
 const Chart = () => {
   const [month, setMonth] = useState<string>("");
   const [year, setYear] = useState<string>("");
-  const [chart, setChart] = useState<"none" | "pie" | "bar">("none");
+  const [chart, setChart] = useState<"none" | "pie" | "bar" | "error">("none");
+  const [error, setError] = useState<Error | undefined>(undefined);
+
+  const yearSetter = (e: ChangeEvent<HTMLInputElement>) => {
+    setYear(e.target.value as string);
+    if (parseInt(e.target.value) < 2000) {
+      setError(new Error("", { cause: "YearInput" }));
+    } else {
+      setError(undefined);
+    }
+  };
+
+  const monthSetter = (e: SelectChangeEvent) => {
+    setMonth(e.target.value as string);
+    setError(undefined);
+  };
 
   const handleChart = () => {
     if (year && month) {
@@ -17,8 +33,10 @@ const Chart = () => {
       } else {
         setChart("pie");
       }
+
+      setError(undefined);
     } else {
-      setChart("none");
+      setError(new Error("", { cause: "EmptyPetition" }));
     }
   };
 
@@ -30,10 +48,11 @@ const Chart = () => {
       <div className={styles.Chart_InputContainer}>
         <ChartInput
           month={month}
-          setMonth={setMonth}
+          setMonth={monthSetter}
           year={year}
-          setYear={setYear}
+          setYear={yearSetter}
           handleChart={handleChart}
+          error={error}
         />
       </div>
       <div className={styles.Chart_ChartContainer}>
